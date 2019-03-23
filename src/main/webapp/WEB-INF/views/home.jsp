@@ -4,6 +4,7 @@
     <title>HST1C</title>
   </head>
   <body>
-  Welcome to the HST1C's homepage
+  Welcome to the HST1C's homepage<br/>
+  <a href="register">Register</a>
   </body>
 </html>
