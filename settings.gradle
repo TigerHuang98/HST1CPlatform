@@ -1,1 +1,2 @@
-include ':core', ':app', ':desktop'
+rootProject.name = 'HST1C'
+

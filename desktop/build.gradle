@@ -1,9 +1,0 @@
-apply plugin: 'java'
-
-dependencies {
-    implementation project(':core')
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-}
-
-sourceCompatibility = "7"
-targetCompatibility = "7"
