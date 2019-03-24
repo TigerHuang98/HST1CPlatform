@@ -19,7 +19,7 @@ import java.util.Map;
 public class JdbcUserRepository implements UserRepository {
 
     private static final String ADD_USER="INSERT INTO User (firstname,lastname,password)values(:firstname,:lastname,:password)";
-    private static final String FIND_USER="SELECT id,firstname,lastname ";
+    private static final String FIND_USER="SELECT id,firstname,lastname FROM User ";
     private static final String _BY_ID="WHERE id=:id";
 
     private static final class UserRowMapper implements RowMapper<User>{
@@ -29,7 +29,7 @@ public class JdbcUserRepository implements UserRepository {
                     rs.getLong("id"),
                     rs.getString("firstname"),
                     rs.getString("lastname"),
-                    rs.getString("password")
+                    null
             );
         }
     }
