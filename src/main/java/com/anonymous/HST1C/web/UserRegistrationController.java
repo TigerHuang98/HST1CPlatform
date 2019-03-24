@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/register")
 public class UserRegistrationController {
     private UserRepository userRepository;
-//    @Autowired
-//    public UserRegistrationController(UserRepository userRepository){
-//        this.userRepository=userRepository;
-//    }
+    @Autowired
+    public UserRegistrationController(UserRepository userRepository){
+        this.userRepository=userRepository;
+    }
     @RequestMapping(method = RequestMethod.POST)
-    public String processRegistration(/*User user*/){
-//        userRepository.addUser(user);
+    public String processRegistration(User user){
+        userRepository.addUser(user);
         return "redirect:/";
     }
     @RequestMapping(method = RequestMethod.GET)
