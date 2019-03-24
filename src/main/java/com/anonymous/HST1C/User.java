@@ -1,28 +1,29 @@
 package com.anonymous.HST1C;
 
 public class User {
-    private final long id;
+    private long id;
     private String firstName;
-    private String lastNmae;
-    private String passWord;
+    private String lastName;
+    private String password;
 
-    public User(long id,String firstName,String lastNmae,String passWord){
+    public User(){}
+    public User(long id, String firstName, String lastName, String password){
         this.id=id;
         this.firstName=firstName;
-        this.lastNmae=lastNmae;
-        this.passWord=passWord;
+        this.lastName = lastName;
+        this.password = password;
     }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    public void setLastNmae(String lastNmae) {
-        this.lastNmae = lastNmae;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public void setPassWord(String passWord) {
-        this.passWord = passWord;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public long getId() {
@@ -33,11 +34,11 @@ public class User {
         return firstName;
     }
 
-    public String getLastNmae() {
-        return lastNmae;
+    public String getLastName() {
+        return lastName;
     }
 
-    public String getPassWord() {
-        return passWord;
+    public String getPassword() {
+        return password;
     }
 }

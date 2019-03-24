@@ -18,7 +18,7 @@ import java.util.Map;
 @Repository
 public class JdbcUserRepository implements UserRepository {
 
-    private static final String ADD_USER="INSERT INTO User (firstname,lastname,password)values(:firstname,:lastname:password)";
+    private static final String ADD_USER="INSERT INTO User (firstname,lastname,password)values(:firstname,:lastname,:password)";
     private static final String FIND_USER="SELECT id,firstname,lastname ";
     private static final String _BY_ID="WHERE id=:id";
 
@@ -46,8 +46,8 @@ public class JdbcUserRepository implements UserRepository {
         KeyHolder keyHolder=new GeneratedKeyHolder();
         Map<String,Object> paramMap=new HashMap<>();
         paramMap.put("firstname",user.getFirstName());
-        paramMap.put("lastname",user.getLastNmae());
-        paramMap.put("password",user.getPassWord());
+        paramMap.put("lastname",user.getLastName());
+        paramMap.put("password",user.getPassword());
         SqlParameterSource paramSource=new MapSqlParameterSource(paramMap);
         namedParameterJdbcOperations.update(ADD_USER,paramSource,keyHolder);
         return keyHolder.getKey().longValue();
