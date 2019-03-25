@@ -1,1 +1,0 @@
-INSERT INTO User (firstname,lastname,password)values('tiger','H','123456');
