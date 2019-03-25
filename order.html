@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="utf-8">
+  <title>Order</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="keywords" content="" />
+  <script type="text/javascript" src="detail.js"></script>
+  <script type="application/x-javascript">
+    addEventListener("load", function () {
+      setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+      window.scrollTo(0, 1);
+    }
+  </script>
+  <link rel="stylesheet" type="text/css" href="main.css" media="all">
+  <link rel="stylesheet" type="text/css" href="new0.css" media="all">
+  
+</head>
+<body>
+	<div class="inner_content_info_agileits">
+    	<div class="container">
+      		<div class="tittle_head_w3ls">
+        		<h3 class="tittle">Order Record</h3>
+      		</div>
+    	</div>
+    </div>
+	<div class="col-md-15 footer_grid_right">
+		<input type="button" name="button" value="All Orders" style="height: 50px;width: 150px;background-color: orange;border: none;margin-left: 50px;margin-bottom: 100px;">
+		<input type="button" name="button" value="Completed Orders" style="height: 50px;width: 150px;background-color: orange;border: none;margin-left: 50px;margin-bottom: 100px;">
+		<input type="button" name="button" value="On-going Orders" style="height: 50px;width: 150px;background-color: orange;border: none;margin-left: 50px;margin-bottom: 100px;">
+		<input type="button" name="button" value="Insured" style="height: 50px;width: 150px;background-color: orange;border: none;margin-left: 50px;margin-bottom: 100px;">
+		<label for="meeting" style="margin-left: 100px;margin-bottom: 100px;height: 50px">Order Date：</label><input id="meeting" type="date" value="2019-01-01" style="margin-left: 20px;height: 50px" />
+		<input type="submit" value="search" style="margin-left: 30px;margin-bottom: 100px;width: 100px;height: 50px"/>
+	<table border="1" id="order_table" style="margin-bottom: 200px;margin-left: 100px;width: 1200px;height: 200px;text-align: center;">
+		<tr>
+			<th>Item Name</th>
+			<th>Order Num</th>
+			<th>Insurance Type</th>
+			<th>Date</th>
+			<th>State</th>
+		</tr>
+		<tr>
+			<td>Item1</td>
+			<td>1</td>
+			<td>A</td>
+			<td>2019-03-24</td>
+			<td><a href="detail.html" id="s1">Uncompleted</a></td>
+		</tr>
+		<tr>
+			<td>Item2</td>
+			<td>2</td>
+			<td>B</td>
+			<td>2018-12-01</td>
+			<td><a href="detail.html" id="s2">Completed</a></td>
+		</tr>
+		
+	</table>
+	<input type="button" name="return" value="🔙 Previous Page" style="margin-left: 620px;margin-bottom: 50px;width: 180px;height: 50px;background-color: lightgreen;font-size: 1.5em;font-weight: 500;" class="return" onclick="window.location.href='main.html'">
+
+	 <!--footer -->
+  <div class="footer_top_agileits">
+    <div class="container">
+      <div class="col-md-3 footer_grid">
+        <h3>About Us</h3>
+        <p>Our information.
+        </p>
+      </div>
+      <div class="col-md-3 footer_grid">
+        <h3>Latest News</h3>
+        <ul class="footer_grid_list">
+          <li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            <a href="single.html" >News (1) </a>
+          </li>
+          <li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            <a href="single.html" >News (2)</a>
+          </li>
+          <li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            <a href="single.html" >News (3) </a>
+          </li>
+          <li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            <a href="single.html" >News (4)</a>
+          </li>
+          <li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            <a href="single.html" >News (5) </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-3 footer_grid">
+        <h3>Contact Info</h3>
+        <ul class="address">
+          <li><i class="fa fa-map-marker" aria-hidden="true"></i>100 Pingleyuan, Chaoyang District, <span>Beijing.</span></li>
+          <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">info@Anonymous.com</a></li>
+          <li><i class="fa fa-phone" aria-hidden="true"></i>+09527 9527 9527</li>
+        </ul>
+      </div>
+      <div class="clearfix"> </div>
+      <div class="footer_grids">
+        <div class="col-md-3 footer_grid_left">
+          <h3>Sign up for our Newsletter</h3>
+        </div>
+        <div class="col-md-8 footer_grid_right">
+
+          <form action="#" method="post">
+            <input type="email" name="Email" placeholder="Enter Email Address..." required="">
+            <input type="submit" value="Submit">
+          </form>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+    </div>
+  </div>
+  <!--footer -->
+</body>
+</html>

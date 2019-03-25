@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Product</title>
+<link rel="stylesheet" type="text/css" href="main.css" media="all">
+ <link rel="stylesheet" type="text/css" href="new0.css" media="all">
+
+<script type="text/javascript" src='jquery-1.7.1.min.js'></script>
+<script type="text/javascript" src='insure.js'></script>
+<script type="text/javascript">
+$(function() {
+	setTimeout("changeDivStyle();", 100); // 0.1秒后展示结果，因为HTML加载顺序，先加载脚本+样式，再加载body内容。所以加个延时
+});
+function changeDivStyle(){
+//		var o_status = $("#o_status").val();	//获取隐藏框值
+	var o_status = 2;
+	if(o_status==0){
+		$('#create').css('background', '#DD0000');
+		$('#createText').css('color', '#DD0000');
+	}else if(o_status==1){
+		$('#check').css('background', '#DD0000');
+		$('#checkText').css('color', '#DD0000');
+		$('#create').css('background', '#DD0000');
+		$('#createText').css('color', '#DD0000');
+	}else if(o_status==2){
+		$('#produce').css('background', '#DD0000');
+		$('#produceText').css('color', '#DD0000');
+		$('#check').css('background', '#DD0000');
+		$('#checkText').css('color', '#DD0000');
+		$('#create').css('background', '#DD0000');
+		$('#createText').css('color', '#DD0000');
+	}else if(o_status==3){
+		$('#delivery').css('background', '#DD0000');
+		$('#deliveryText').css('color', '#DD0000');
+		$('#produce').css('background', '#DD0000');
+		$('#produceText').css('color', '#DD0000');
+		$('#check').css('background', '#DD0000');
+		$('#checkText').css('color', '#DD0000');
+		$('#create').css('background', '#DD0000');
+		$('#createText').css('color', '#DD0000');
+	}else if(o_status==4){
+		$('#received').css('background', '#DD0000');
+		$('#receivedText').css('color', '#DD0000');
+	}
+	
+}
+addEventListener("load", function () {
+      setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+      window.scrollTo(0, 1);
+    }
+</script>
+
+<style type="text/css">
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+body{background:#f2f2f2;font:12px/180% Arial, Helvetica, sans-serif;}
+/* stepInfo 
+	border-radius：0为正方形，0~N，由正方形向圆形转化，N越大越圆。
+	padding：图形的内边距
+	background：图形背景色
+	text-align：文本对齐
+	line-height：行高
+	color：文字颜色
+	position：定位
+	width：宽度
+	height：高度
+*/
+.stepInfo{position:relative;background:#f2f2f2;margin:20px auto 0 auto;width:800px;}
+.stepInfo li{float:left;width:48%;height:0.15em;background:#bbb;}
+.stepIco{border-radius:1em;padding:0.03em;background:#bbb;text-align:center;line-height:1.5em;color:#fff; position:absolute;width:1.4em;height:1.4em;}
+.stepIco1{top:-0.7em;left:-1%;}
+.stepIco2{top:-0.7em;left:31%;}
+.stepIco3{top:-0.7em;left:63%;}
+.stepIco4{top:-0.7em;left:95%;}
+.stepText{color:#666;margin-top:0.2em;width:4em;text-align:center;margin-left:-1.4em;}
+</style>
+</head>
+
+<body>
+	<div class="inner_content_info_agileits">
+    	<div class="container">
+      		<div class="tittle_head_w3ls">
+        		<h3 class="tittle">Payment</h3>
+      		</div>
+      		
+    	</div>
+    </div>
+<br><br><br><br>
+<input type="hidden" value=${detailorder.status } id="o_status" /><!--后台传到页面的数据-->
+
+<div class="stepInfo">
+	<ul>
+		<li></li>
+		<li></li>
+	</ul>
+	<div class="stepIco stepIco1" id="create">1
+		<div class="stepText" id="createText">Select Items</div>
+	</div>
+	<div class="stepIco stepIco2" id="check">2
+		<div class="stepText" id="checkText">Select Insurance Products</div>
+	</div>
+	<div class="stepIco stepIco3" id="produce">3
+		<div class="stepText" id="produceText">Payment</div>
+	</div>
+	<div class="stepIco stepIco4" id="delivery">4
+		<div class="stepText" id="deliveryText">Success</div>
+	</div>
+</div>
+<div style="text-align:center;margin:100px 0; font:normal 14px/24px 'MicroSoft YaHei';clear:both;">
+</div>
+	<div class="inner_content_info_agileits">
+    	<div class="container">
+      		<div class="inner_sec_grids_info_w3ls">
+				<div class="col-md-10 blog-grid one" style="float: left;margin-left: 100px">
+					<div class="main_info" >
+						<div style="margin-bottom: 50px;font-size: 1.5em;font-weight: 500">
+							<div style="float: left;margin-left: 100px">
+								<h5 style="color: black">Balance of Account:</h5>
+							</div>
+							<div style="float: left; margin-left: 50px">
+								<h5>$xxx</h5>	
+							</div>
+							<div style="float: left; margin-left: 250px">
+								<input type="button" name="top-up" value="top-up" style="margin-top: 10px;border-radius: 1000px;width: 100px;background-color: pink;color: red" onclick="window.location.href='personal.html'">
+							</div>
+						</div>
+						<div style="margin-bottom: 50px;font-size: 1.5em;font-weight: 500">
+							<div style="float: left;margin-left: 100px;">
+								<h5 style="color: black">Product Price:</h5>
+							</div>
+							<div style="float: left; margin-left: 110px">
+								<h5>$yyy</h5>	
+							</div>
+						</div>
+						<br><br><br><br><br><br>
+						<input type="button" name="pay" value="Pay" style="font-weight: 500;font-size: 1.5em;background-color: orange;width: 100px;height: 50px" onclick="window.location.href='success.html'">
+					</div>
+				</div>
+			</div>	
+    	</div>
+	</div>
+
+<input type="button" name="return" value="🔙 Previous Page" style="margin-left: 635px;margin-bottom: 50px;width: 180px;height: 50px;background-color: lightgreen;font-size: 1.5em;font-weight: 500;" class="return" onclick="window.location.href='product.html'">
+
+
+ <!--footer -->
+  <div class="footer_top_agileits">
+    <div class="container">
+      <div class="col-md-3 footer_grid">
+        <h3>About Us</h3>
+        <p>Our information.
+        </p>
+      </div>
+      <div class="col-md-3 footer_grid">
+        <h3>Latest News</h3>
+        <ul class="footer_grid_list">
+          <li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            <a href="single.html" >News (1) </a>
+          </li>
+          <li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            <a href="single.html" >News (2)</a>
+          </li>
+          <li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            <a href="single.html" >News (3) </a>
+          </li>
+          <li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            <a href="single.html" >News (4)</a>
+          </li>
+          <li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            <a href="single.html" >News (5) </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-3 footer_grid">
+        <h3>Contact Info</h3>
+        <ul class="address">
+          <li><i class="fa fa-map-marker" aria-hidden="true"></i>100 Pingleyuan, Chaoyang District, <span>Beijing.</span></li>
+          <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">info@Anonymous.com</a></li>
+          <li><i class="fa fa-phone" aria-hidden="true"></i>+09527 9527 9527</li>
+        </ul>
+      </div>
+      <div class="clearfix"> </div>
+      <div class="footer_grids">
+        <div class="col-md-3 footer_grid_left">
+          <h3>Sign up for our Newsletter</h3>
+        </div>
+        <div class="col-md-8 footer_grid_right">
+
+          <form action="#" method="post">
+            <input type="email" name="Email" placeholder="Enter Email Address..." required="">
+            <input type="submit" value="Submit">
+          </form>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+    </div>
+  </div>
+  <!--footer -->
+
+</body>
