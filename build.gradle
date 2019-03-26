@@ -15,6 +15,8 @@ repositories {
 dependencies {
     compile "org.springframework:spring-webmvc:$springVersion"
     compile "org.springframework:spring-jdbc:$springVersion"
+    compile "org.springframework.security:spring-security-config:$springSecurityVersion"
+    compile "org.springframework.security:spring-security-web:$springSecurityVersion"
     compile "com.h2database:h2:$h2Version"
     compile "javax.servlet:jstl:$jstlVersion"
 
