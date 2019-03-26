@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+>
+    <head>
+        <title>Title</title>
+    </head>
+    <body>
+        <form method="POST" th:object="${userRegistrationForm}" enctype="multipart/form-data">
+            Username: <input type="text" th:field="*{username}"/><br/>
+            Password: <input type="password" th:field="*{password}"/><br/>
+            Gender: <select th:field="*{gender}">
+            <option th:each="gender:${T(com.anonymous.HST1C.Gender).values()}"
+                    th:value="${gender}"
+                    th:text="${gender}">
+                    </option>
+            </select><br/>
+            Phonr number:<input type="text" th:field="*{phonenumber}"/><br/>
+            Email address:<input type="text" th:field="*{emailaddress}"/><br/>
+            Birthsay: <input type="date" th:field="*{birthday}"/><br/>
+            <input type="submit" value="Register" />
+        </form>
+
+            <!--Icon: <input type="file"-->
+                         <!--name="profilePicture"-->
+                         <!--accept="image/jpeg,image/png,image/gif" /><br/>-->
+    </body>
+</html>
