@@ -3,6 +3,7 @@ package com.anonymous.HST1C.data;
 import com.anonymous.HST1C.Userinfo;
 import com.anonymous.HST1C.Gender;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
 import org.springframework.stereotype.Repository;
@@ -76,6 +77,10 @@ public class JdbcUserinfoRepository implements UserinfoRepository {
     public Userinfo findUserinfo(String username) {
         Map<String,Object> paramMap=new HashMap<>();
         paramMap.put("username",username);
-        return namedParameterJdbcOperations.queryForObject(FIND_USERINFO+_BY_USERNAME,paramMap,new UserinfoRowMapper());
+        try{
+            return namedParameterJdbcOperations.queryForObject(FIND_USERINFO+_BY_USERNAME,paramMap,new UserinfoRowMapper());
+        }catch(EmptyResultDataAccessException e){//Userinfo detail not find
+            return null;
+        }
     }
 }

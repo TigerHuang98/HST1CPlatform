@@ -32,8 +32,6 @@ public class UserRegistrationController {
     public String processRegistration(UserRegistrationForm userRegistrationForm,RedirectAttributes model) throws IOException, SQLException {
         BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
         String password=userRegistrationForm.getPassword();
-        Userinfo test=new Userinfo();
-        test.setBirthdate(userRegistrationForm.getBirthday());
         Userinfo userinfo=new Userinfo(
                 userRegistrationForm.getUsername(),
                 userRegistrationForm.getGender(),

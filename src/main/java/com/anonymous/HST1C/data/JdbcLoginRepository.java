@@ -2,7 +2,9 @@ package com.anonymous.HST1C.data;
 
 import com.anonymous.HST1C.Login;
 import com.anonymous.HST1C.Role;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
@@ -22,6 +24,7 @@ public class JdbcLoginRepository implements LoginRepository {
     private static final String ADD_LOGIN="INSERT INTO login(`username`,`password`,`uid`) values(:username,:password,'customer')";
     private static final String FIND_LOGIN="SELECT `username`,`password`,`uid`,`userid` FROM login ";
     private static final String _BY_ID="WHERE `userid`=:userid";
+    private static final String _BY_USERNAME="WHERE `username`=:username";
 
     private static final class LoginRowMapper implements RowMapper<Login>{
 
@@ -65,8 +68,23 @@ public class JdbcLoginRepository implements LoginRepository {
 
     @Override
     public Login findLoginById(int userid) {
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("userid", userid);
+        try{
+            return namedParameterJdbcOperations.queryForObject(FIND_LOGIN + _BY_ID, paramMap, new LoginRowMapper());
+        }catch(EmptyResultDataAccessException e){//Login detail not find
+            return null;
+        }
+    }
+
+    @Override
+    public Login findLoginByUsername(String username) {
         Map<String,Object> paramMap=new HashMap<>();
-        paramMap.put("userid",userid);
-        return namedParameterJdbcOperations.queryForObject(FIND_LOGIN+_BY_ID,paramMap,new LoginRowMapper());
+        paramMap.put("username",username);
+        try{
+            return namedParameterJdbcOperations.queryForObject(FIND_LOGIN+_BY_USERNAME,paramMap,new LoginRowMapper());
+        }catch(EmptyResultDataAccessException e){//Login detail not find
+            return null;
+        }
     }
 }
