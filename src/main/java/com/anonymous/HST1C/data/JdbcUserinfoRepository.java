@@ -32,7 +32,7 @@ public class JdbcUserinfoRepository implements UserinfoRepository {
                 gender=Gender.FEMALE;
             }
 
-            return new Userinfo(
+            Userinfo userinfo= new Userinfo(
                     rs.getString("username"),
                     gender,
                     rs.getString("phonenumber"),
@@ -40,6 +40,8 @@ public class JdbcUserinfoRepository implements UserinfoRepository {
                     rs.getDate("birthdate"),
                     rs.getBlob("icon")
             );
+            userinfo.readBlobToBytes();
+            return userinfo;
         }
     }
 
@@ -64,6 +66,7 @@ public class JdbcUserinfoRepository implements UserinfoRepository {
         paramMap.put("gender",genderString);
         paramMap.put("phonenumber",userinfo.getPhonenumber());
         paramMap.put("emailaddress",userinfo.getEmailaddress());
+        paramMap.put("birthdate",userinfo.getBirthdate());
         paramMap.put("icon",userinfo.getIcon());
         namedParameterJdbcOperations.update(ADD_USERINFO,paramMap);
         return userinfo;

@@ -1,0 +1,17 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<h1>Your Profile</h1>
+<span th:text="${userinfo.username}">username</span><br/>
+<span th:text="${userinfo.gender}">gender</span><br />
+<span th:text="${userinfo.phonenumber}">phone number</span><br/>
+<span th:text="${userinfo.emailaddress}">email</span><br/>
+<span th:text="${userinfo.birthdate}">birthday</span><br/>
+<img th:src="${userIcon} == null ? _ : @{'data:image/png;base64,'+${userIcon}}"/><br/>
+<a th:href="@{./}">Back</a>
+</body>
+</html>

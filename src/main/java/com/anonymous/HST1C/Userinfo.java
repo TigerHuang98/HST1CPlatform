@@ -2,6 +2,7 @@ package com.anonymous.HST1C;
 
 import java.sql.Blob;
 import java.sql.Date;
+import java.sql.SQLException;
 
 public class Userinfo {
     private String username;
@@ -10,6 +11,7 @@ public class Userinfo {
     private String emailaddress;
     private Date birthdate;
     private Blob icon;
+    private byte[] iconBytes;
 
     public Userinfo(){
 
@@ -21,6 +23,14 @@ public class Userinfo {
         this.emailaddress=emailaddress;
         this.birthdate=birthdate;
         this.icon=icon;
+    }
+
+    public void readBlobToBytes(){
+        try {
+            iconBytes=icon.getBytes(1,(int) icon.length());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void setUsername(String username) {
@@ -69,5 +79,9 @@ public class Userinfo {
 
     public Blob getIcon() {
         return icon;
+    }
+
+    public byte[] getIconBytes() {
+        return iconBytes;
     }
 }

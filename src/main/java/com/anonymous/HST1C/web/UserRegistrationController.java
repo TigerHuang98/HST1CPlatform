@@ -1,12 +1,11 @@
 package com.anonymous.HST1C.web;
 
-import com.anonymous.HST1C.Gender;
 import com.anonymous.HST1C.Login;
 import com.anonymous.HST1C.Role;
 import com.anonymous.HST1C.Userinfo;
 import com.anonymous.HST1C.data.LoginRepository;
 import com.anonymous.HST1C.data.UserinfoRepository;
-import org.h2.jdbc.JdbcBlob;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -16,7 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.sql.rowset.serial.SerialBlob;
-import java.sql.Blob;
+import java.io.IOException;
+import java.sql.SQLException;
 
 @Controller
 @RequestMapping("/register")
@@ -29,20 +29,23 @@ public class UserRegistrationController {
         this.loginRepository=loginRepository;
     }
     @RequestMapping(method = RequestMethod.POST)
-    public String processRegistration(UserRegistrationForm userRegistrationForm){
+    public String processRegistration(UserRegistrationForm userRegistrationForm,RedirectAttributes model) throws IOException, SQLException {
         BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
         String password=userRegistrationForm.getPassword();
         Userinfo test=new Userinfo();
         test.setBirthdate(userRegistrationForm.getBirthday());
-//        Userinfo userinfo=new Userinfo(userRegistrationForm.getUsername(),userRegistrationForm.getGender(),userRegistrationForm.getEmailaddress(),userRegistrationForm.getBirthday(),(Blob)null);
+        Userinfo userinfo=new Userinfo(
+                userRegistrationForm.getUsername(),
+                userRegistrationForm.getGender(),
+                userRegistrationForm.getPhonenumber(),
+                userRegistrationForm.getEmailaddress(),
+                userRegistrationForm.getBirthday(),
+                new SerialBlob(userRegistrationForm.getIcon().getBytes()));
         Login login=new Login(userRegistrationForm.getUsername(),passwordEncoder.encode(password),Role.CUSTOMER,-1);
-        login.setUserid(-1);
-
-
-
-//        userinfoRepository.addUserinfo(userinfo);
-//        int userid=loginRepository.addCustomerLogin(login);
-//        model.addFlashAttribute("uesrid",userid);
+        String username=userinfoRepository.addUserinfo(userinfo).getUsername();
+        int userid=loginRepository.addCustomerLogin(login);
+        model.addFlashAttribute("uesrid",userid);
+        model.addFlashAttribute("username",username);
         return "redirect:/profile";
     }
     @RequestMapping(method = RequestMethod.GET)

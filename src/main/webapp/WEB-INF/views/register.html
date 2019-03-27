@@ -14,14 +14,13 @@
                     th:text="${gender}">
                     </option>
             </select><br/>
-            Phonr number:<input type="text" th:field="*{phonenumber}"/><br/>
+            Phone number:<input type="text" th:field="*{phonenumber}"/><br/>
             Email address:<input type="text" th:field="*{emailaddress}"/><br/>
-            Birthsay: <input type="date" th:field="*{birthday}"/><br/>
+            Birthday: <input type="date" th:field="*{birthday}"/>
+            Icon: <input type="file"
+            name="icon"
+            accept="image/jpeg,image/png,image/gif" /><br/>
             <input type="submit" value="Register" />
         </form>
-
-            <!--Icon: <input type="file"-->
-                         <!--name="profilePicture"-->
-                         <!--accept="image/jpeg,image/png,image/gif" /><br/>-->
     </body>
 </html>
