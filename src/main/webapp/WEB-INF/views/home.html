@@ -13,6 +13,7 @@
     <input type="password" th:field="*{password}"/><br/>
     <input type="submit" th:value="#{loginForm.login}"/>
   </form>
-  <a th:href="@{register}"><span th:text="#{home.register}"></span></a>
+  <a th:href="@{register}"><span th:text="#{home.register}"></span></a><br/>
+  <a th:href="@{'./'+#{theOtherLanguage}}"><span th:text="#{changeLanguage}"></span></a>
   </body>
 </html>
