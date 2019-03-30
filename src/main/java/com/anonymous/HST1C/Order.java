@@ -1,17 +1,17 @@
 package com.anonymous.HST1C;
 
 import java.sql.Date;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 public class Order {
     private int odernumber;
-    private LocalDateTime orderdate;
+    private Timestamp orderdate;
     private String username;
     private int itemid;
     private Status status;
     private Date lostdate;
 
-    public Order(int odernumber, LocalDateTime orderdate, String username, int itemid, Status status, Date lostdate) {
+    public Order(int odernumber, Timestamp orderdate, String username, int itemid, Status status, Date lostdate) {
         this.odernumber = odernumber;
         this.orderdate = orderdate;
         this.username = username;
@@ -24,7 +24,7 @@ public class Order {
         this.odernumber = odernumber;
     }
 
-    public void setOrderdate(LocalDateTime orderdate) {
+    public void setOrderdate(Timestamp orderdate) {
         this.orderdate = orderdate;
     }
 
@@ -48,7 +48,7 @@ public class Order {
         return odernumber;
     }
 
-    public LocalDateTime getOrderdate() {
+    public Timestamp getOrderdate() {
         return orderdate;
     }
 

@@ -1,19 +1,20 @@
 package com.anonymous.HST1C;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 public class Message {
     private int messageid;
     private String text;
-    private LocalDateTime messagedate;
+    private Timestamp messagedate;
     private int ordernumber;
     private boolean issend;
 
-    public Message(int messageid, String text, LocalDateTime messagedate, int ordernumber) {
+    public Message(int messageid, String text, Timestamp messagedate, int ordernumber, boolean issend) {
         this.messageid = messageid;
         this.text = text;
         this.messagedate = messagedate;
         this.ordernumber = ordernumber;
+        this.issend=issend;
     }
 
     public void setMessageid(int messageid) {
@@ -24,7 +25,7 @@ public class Message {
         this.text = text;
     }
 
-    public void setMessagedate(LocalDateTime messagedate) {
+    public void setMessagedate(Timestamp messagedate) {
         this.messagedate = messagedate;
     }
 
@@ -44,7 +45,7 @@ public class Message {
         return text;
     }
 
-    public LocalDateTime getMessagedate() {
+    public Timestamp getMessagedate() {
         return messagedate;
     }
 

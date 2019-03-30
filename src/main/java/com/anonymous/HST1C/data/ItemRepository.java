@@ -2,8 +2,10 @@ package com.anonymous.HST1C.data;
 
 import com.anonymous.HST1C.Item;
 
+import java.util.List;
+
 public interface ItemRepository {
-    Item addItem(Item item);
+    int addItem(Item item);
     Item findItemById(int itemid);
-    Item[] findItemByUsername(String username);
+    List<Item> findItemsByUsername(String username);
 }

@@ -2,8 +2,10 @@ package com.anonymous.HST1C.data;
 
 import com.anonymous.HST1C.Message;
 
+import java.util.List;
+
 public interface MessageRepository {
-    Message addMessage(Message message);
+    int addMessage(Message message);
     Message findMessageById(int messageid);
-    Message[] findMessageByOrdernumber(int ordernumber);
+    List<Message> findMessagesByOrdernumber(int ordernumber);
 }

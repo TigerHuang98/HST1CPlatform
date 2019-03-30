@@ -21,7 +21,7 @@ import java.util.Map;
 @Repository
 public class JdbcLoginRepository implements LoginRepository {
 
-    private static final String ADD_LOGIN="INSERT INTO login(`username`,`password`,`uid`) values(:username,:password,'customer')";
+    private static final String ADD_LOGIN="INSERT INTO login(`username`,`password`,`uid`) VALUES (:username,:password,'customer')";
     private static final String FIND_LOGIN="SELECT `username`,`password`,`uid`,`userid` FROM login ";
     private static final String _BY_ID="WHERE `userid`=:userid";
     private static final String _BY_USERNAME="WHERE `username`=:username";

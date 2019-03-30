@@ -38,7 +38,8 @@ CREATE TABLE `message` (
                            `messagedate` datetime NOT NULL,
                            `ordernumber` int(11) NOT NULL,
                            `issend` enum('N','Y') NOT NULL,
-                           PRIMARY KEY (`messageid`)
+                           PRIMARY KEY (`messageid`),
+                           CONSTRAINT `m_ordernumber` FOREIGN KEY (`ordernumber`) REFERENCES `order` (`ordernumber`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `order`;

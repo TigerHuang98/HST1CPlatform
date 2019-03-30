@@ -16,7 +16,7 @@ import java.util.Map;
 @Repository
 public class JdbcUserinfoRepository implements UserinfoRepository {
 
-    private static final String ADD_USERINFO="INSERT INTO userinfo(`username`,`gender`,`phonenumber`,`emailaddress`,`birthdate`,`icon`) values(:username,:gender,:phonenumber,:emailaddress,:birthdate,:icon)";
+    private static final String ADD_USERINFO="INSERT INTO userinfo(`username`,`gender`,`phonenumber`,`emailaddress`,`birthdate`,`icon`) VALUES (:username,:gender,:phonenumber,:emailaddress,:birthdate,:icon)";
     private static final String FIND_USERINFO="SELECT `username`,`gender`,`phonenumber`,`emailaddress`,`birthdate`,`icon` FROM userinfo ";
     private static final String _BY_USERNAME="WHERE `username`=:username";
 
