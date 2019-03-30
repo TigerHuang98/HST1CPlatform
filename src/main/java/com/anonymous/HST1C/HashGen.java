@@ -7,13 +7,13 @@ public class HashGen {
         String password ="123456";
         int size=100;
         BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
-        String[] hashs=new String[size];
+        String[] hashes=new String[size];
         for(int i=0;i<size;i++){
-            hashs[i]=passwordEncoder.encode(password);
-            System.out.println(hashs[i]);
+            hashes[i]=passwordEncoder.encode(password);
+            System.out.println(hashes[i]);
         }
         for(int i=0;i<size;i++){
-//            System.out.println(passwordEncoder.matches(password,hashs[i]));
+//            System.out.println(passwordEncoder.matches(password,hashes[i]));
         }
     }
 }
