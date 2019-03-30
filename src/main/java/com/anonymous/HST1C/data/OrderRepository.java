@@ -7,5 +7,6 @@ import java.util.List;
 public interface OrderRepository {
     int addOrder(Order order);
     Order findOrderByOrdernumber(int ordernumber);
+    List<Order> findOrdersByItemid(int itemid);
     List<Order> findOrdersByUsername(String username);
 }

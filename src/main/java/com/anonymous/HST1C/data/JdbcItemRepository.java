@@ -26,6 +26,7 @@ public class JdbcItemRepository implements ItemRepository {
     private static final String _BY_USERNAME="WHERE `username`=:username";
 
     private static final class ItemRowMapper implements RowMapper<Item> {
+
         @Override
         public Item mapRow(ResultSet rs, int rowNum) throws SQLException {
             Item item=new Item(

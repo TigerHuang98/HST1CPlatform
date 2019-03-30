@@ -23,10 +23,11 @@ public class JdbcMessageRepository implements MessageRepository {
     private static final String ADD_MESSAGE="INSERT INTO message(`messageid`,`text`,`messagedate`,`ordernumber`,`issend`) VALUES (:messageid,:text,:messagedate,:ordernumber,:issend)";
     private static final String FIND_MESSAGE="SELECT `messageid`,`text`,`messagedate`,`ordernumber`,`issend` FROM message ";
     private static final String _BY_ID="WHERE `messageid`=:messageid";
-    private static final String _BY_USERNAME="WHERE `username`=:username";
+    private static final String _BY_ORDERNUMBER="WHERE `ordernumber`=:ordernumber";
 
 
     private static final class MessageRepository implements RowMapper<Message>{
+
         @Override
         public Message mapRow(ResultSet rs, int rowNum) throws SQLException {
             String isSendString=rs.getString("issend");
@@ -90,8 +91,8 @@ public class JdbcMessageRepository implements MessageRepository {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("ordernumber",ordernumber);
         try{
-            return namedParameterJdbcOperations.query(FIND_MESSAGE + _BY_USERNAME, paramMap, new JdbcMessageRepository.MessageRepository());
-        }catch(EmptyResultDataAccessException e){//message detail not find
+            return namedParameterJdbcOperations.query(FIND_MESSAGE + _BY_ORDERNUMBER, paramMap, new JdbcMessageRepository.MessageRepository());
+        }catch(EmptyResultDataAccessException e){//Message detail not find
             return null;
         }
     }
