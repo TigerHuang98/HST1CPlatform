@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li th:each="order : ${orders}">
+        <div>
+            <span th:text="${order.odernumber}   "></span>
+            <span th:text="${order.orderdate}   "></span>
+            <span th:text="${order.itemid}   "></span>
+            <span th:text="${order.status}   "></span>
+            <span th:text="${order.lostdate}  "></span>
+        </div>
+    </li>
+</ul>
+<a th:href="@{claim_form}"><span th:text="add"></span></a>
+</body>
+</html>

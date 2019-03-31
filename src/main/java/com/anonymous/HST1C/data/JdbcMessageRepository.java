@@ -20,7 +20,7 @@ import java.util.Map;
 @Repository
 public class JdbcMessageRepository implements MessageRepository {
 
-    private static final String ADD_MESSAGE="INSERT INTO message(`messageid`,`text`,`messagedate`,`ordernumber`,`issend`) VALUES (:messageid,:text,:messagedate,:ordernumber,:issend)";
+    private static final String ADD_MESSAGE="INSERT INTO message(`text`,`messagedate`,`ordernumber`,`issend`) VALUES (:text,:messagedate,:ordernumber,:issend)";
     private static final String FIND_MESSAGE="SELECT `messageid`,`text`,`messagedate`,`ordernumber`,`issend` FROM message ";
     private static final String _BY_ID="WHERE `messageid`=:messageid";
     private static final String _BY_ORDERNUMBER="WHERE `ordernumber`=:ordernumber";
@@ -65,7 +65,6 @@ public class JdbcMessageRepository implements MessageRepository {
         }
         KeyHolder keyHolder=new GeneratedKeyHolder();
         Map<String,Object> paramMap=new HashMap<>();
-        paramMap.put("messageid",message.getMessageid());
         paramMap.put("text",message.getText());
         paramMap.put("messagedate",message.getMessagedate());
         paramMap.put("ordernunmber",message.getOrdernumber());

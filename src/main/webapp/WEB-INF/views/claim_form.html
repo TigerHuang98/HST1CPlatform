@@ -1,0 +1,19 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<form method="POST" th:object="${claimForm}" enctype="multipart/form-data">
+    Item Picture: <input type="file"
+                 name="picture"
+                 accept="image/jpeg,image/png,image/gif" /><br/>
+    Price: <input type="number" step="0.01" th:field="*{price}"/><br/>
+    Item name: <input type="text" th:field="*{itemname}"/><br/>
+    Description: <input type="text" th:field="*{description}"/><br/>
+    Lost date: <input type="date" th:field="*{lostdate}"/><br/>
+    <input type="submit" value="Submit" />
+</form>
+</body>
+</html>

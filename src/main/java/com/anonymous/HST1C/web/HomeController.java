@@ -8,7 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/")
@@ -26,7 +29,7 @@ public class HomeController {
         return "home";
     }
     @RequestMapping(method = RequestMethod.POST)
-    public String processLogin(LoginForm loginForm,RedirectAttributes model){
+    public String processLogin(LoginForm loginForm, RedirectAttributes model, HttpSession session){
         BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
         Login login=loginRepository.findLoginByUsername(loginForm.getUsername());
         if(
@@ -34,8 +37,10 @@ public class HomeController {
             &&
                 passwordEncoder.matches(loginForm.getPassword(),login.getPassword())
         ){
-            model.addFlashAttribute("username",login.getUsername());
-            return "redirect:/profile";
+            String username=login.getUsername();
+            session.setAttribute("username",username);
+            model.addFlashAttribute("username",username);
+            return "redirect:/claim_list";
         }else{
             return "home";//TODO:login failed logic?
         }

@@ -20,7 +20,7 @@ import java.util.Map;
 @Repository
 public class JdbcItemRepository implements ItemRepository {
 
-    private static final String ADD_ITEM="INSERT INTO item(`itemid`,`picture`,`price`,`itemname`,`username`,`description`) VALUES (:itemid,:picture,:price,:itemname,:username,:description)";
+    private static final String ADD_ITEM="INSERT INTO item(`picture`,`price`,`itemname`,`username`,`description`) VALUES (:picture,:price,:itemname,:username,:description)";
     private static final String FIND_ITEM="SELECT `itemid`,`picture`,`price`,`itemname`,`username`,`description` FROM item ";
     private static final String _BY_ID="WHERE `itemid`=:itemid";
     private static final String _BY_USERNAME="WHERE `username`=:username";
@@ -53,7 +53,6 @@ public class JdbcItemRepository implements ItemRepository {
     public int addItem(Item item) {
         KeyHolder keyHolder=new GeneratedKeyHolder();
         Map<String,Object> paramMap=new HashMap<>();
-        paramMap.put("itemid",item.getItemid());
         paramMap.put("picture",item.getPicture());
         paramMap.put("price",item.getPrice());
         paramMap.put("itemname",item.getItemname());
