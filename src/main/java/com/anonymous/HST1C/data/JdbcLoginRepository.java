@@ -36,7 +36,7 @@ public class JdbcLoginRepository implements LoginRepository {
                 role=Role.CUSTOMER;
             }
             if(roleString.equals("stuff")){
-                role=Role.STUFF;
+                role=Role.STAFF;
             }
 
             return new Login(
