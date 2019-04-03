@@ -13,5 +13,6 @@
 <span th:text="${userinfo.birthdate}">birthday</span><br/>
 <img th:src="${userIcon} == null ? _ : @{'data:image/png;base64,'+${userIcon}}"/><br/>
 <a th:href="@{./}">Back</a>
+<a th:href="@{claim_list}">claim_list</a>
 </body>
 </html>

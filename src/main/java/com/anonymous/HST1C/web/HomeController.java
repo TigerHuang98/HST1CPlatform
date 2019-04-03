@@ -1,6 +1,7 @@
 package com.anonymous.HST1C.web;
 
 import com.anonymous.HST1C.Login;
+import com.anonymous.HST1C.Role;
 import com.anonymous.HST1C.data.LoginRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -40,7 +41,14 @@ public class HomeController {
             String username=login.getUsername();
             session.setAttribute("username",username);
             model.addFlashAttribute("username",username);
-            return "redirect:/claim_list";
+            switch (login.getUid()){
+                case CUSTOMER:
+                    return "redirect:/claim_list";
+                case STAFF:
+                    return "redirect:/staff_list";
+                default:
+                    return "home";
+            }
         }else{
             return "home";//TODO:login failed logic?
         }

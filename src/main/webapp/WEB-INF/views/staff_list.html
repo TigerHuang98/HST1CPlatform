@@ -8,7 +8,7 @@
 <ul>
     <li th:each="order : ${orders_processing}">
         <div>
-            <span th:text="${order.odernumber}   "></span>
+            <span th:text="${order.ordernumber}   "></span>
             <span th:text="${order.orderdate}   "></span>
             <span th:text="${order.itemid}   "></span>
             <span th:text="${order.status}   "></span>
@@ -22,7 +22,7 @@ done:<br/>
 <ul>
     <li th:each="order : ${orders_done}">
         <div>
-            <span th:text="${order.odernumber}   "></span>
+            <span th:text="${order.ordernumber}   "></span>
             <span th:text="${order.orderdate}   "></span>
             <span th:text="${order.itemid}   "></span>
             <span th:text="${order.status}   "></span>
@@ -30,7 +30,6 @@ done:<br/>
         </div>
     </li>
 </ul>
-<a th:href="@{claim_form}"><span th:text="add"></span></a>
 <a th:href="@{profile}"><span th:text="profile"></span></a>
 </body>
 </html>

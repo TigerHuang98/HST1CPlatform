@@ -4,15 +4,15 @@ import java.sql.Date;
 import java.sql.Timestamp;
 
 public class Order {
-    private int odernumber;
+    private int ordernumber;
     private Timestamp orderdate;
     private String username;
     private int itemid;
     private Status status;
     private Date lostdate;
 
-    public Order(int odernumber, Timestamp orderdate, String username, int itemid, Status status, Date lostdate) {
-        this.odernumber = odernumber;
+    public Order(int ordernumber, Timestamp orderdate, String username, int itemid, Status status, Date lostdate) {
+        this.ordernumber = ordernumber;
         this.orderdate = orderdate;
         this.username = username;
         this.itemid = itemid;
@@ -20,8 +20,8 @@ public class Order {
         this.lostdate = lostdate;
     }
 
-    public void setOdernumber(int odernumber) {
-        this.odernumber = odernumber;
+    public void setOrdernumber(int ordernumber) {
+        this.ordernumber = ordernumber;
     }
 
     public void setOrderdate(Timestamp orderdate) {
@@ -44,8 +44,8 @@ public class Order {
         this.lostdate = lostdate;
     }
 
-    public int getOdernumber() {
-        return odernumber;
+    public int getOrdernumber() {
+        return ordernumber;
     }
 
     public Timestamp getOrderdate() {

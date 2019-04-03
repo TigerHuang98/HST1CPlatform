@@ -122,7 +122,19 @@ public class JdbcOrderRepository implements OrderRepository {
     @Override
     public List<Order> findOrdersByStatus(Status status) {
         Map<String, Object> paramMap = new HashMap<>();
-        paramMap.put("status",status);
+        String statusString="";
+        switch (status){
+            case PROCESSING:
+                statusString="processing";
+                break;
+            case DENYING:
+                statusString="denying";
+                break;
+            case APPROVING:
+                statusString="approving";
+                break;
+        }
+        paramMap.put("status",statusString);
         try{
             return namedParameterJdbcOperations.query(FIND_ORDER + _BY_STATUS, paramMap, new JdbcOrderRepository.OrderRowMapper());
         }catch(EmptyResultDataAccessException e){//Order detail not find
