@@ -13,6 +13,8 @@
             <span th:text="${order.itemid}   "></span>
             <span th:text="${order.status}   "></span>
             <span th:text="${order.lostdate}  "></span>
+            <a th:href="@{staff_handle+@{?(ordernumber=${order.ordernumber},act=approve)}}"><span th:text="approve"></span></a>
+            <a th:href="@{staff_handle+@{?(ordernumber=${order.ordernumber},act=deny)}}"><span th:text="deny"></span></a>
         </div>
     </li>
 </ul>

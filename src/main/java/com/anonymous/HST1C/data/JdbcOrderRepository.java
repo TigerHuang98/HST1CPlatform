@@ -24,6 +24,7 @@ public class JdbcOrderRepository implements OrderRepository {
 
     private static final String ADD_ORDER="INSERT INTO `order`(`orderdate`,`username`,`itemid`,`status`,`lostdate`) VALUES (:orderdate,:username,:itemid,:status,:lostdate)";
     private static final String FIND_ORDER="SELECT `ordernumber`,`orderdate`,`username`,`itemid`,`status`,`lostdate` FROM `order` ";
+    private static final String UPDATE_ORDER_STATUS="UPDATE `order` SET status=:status ";
     private static final String _BY_ID="WHERE `ordernumber`=:ordernumber";
     private static final String _BY_ITEMID="WHERE `itemid`=:itemid";
     private static final String _BY_USERNAME="WHERE `username`=:username";
@@ -122,6 +123,23 @@ public class JdbcOrderRepository implements OrderRepository {
     @Override
     public List<Order> findOrdersByStatus(Status status) {
         Map<String, Object> paramMap = new HashMap<>();
+        convertStatusToParam(status, paramMap);
+        try{
+            return namedParameterJdbcOperations.query(FIND_ORDER + _BY_STATUS, paramMap, new JdbcOrderRepository.OrderRowMapper());
+        }catch(EmptyResultDataAccessException e){//Order detail not find
+            return null;
+        }
+    }
+
+    @Override
+    public void updateOrderStatusByOrdernumber(int ordernumber,Status status) {
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("ordernumber",ordernumber);
+        convertStatusToParam(status, paramMap);
+        namedParameterJdbcOperations.update(UPDATE_ORDER_STATUS+_BY_ID,paramMap);
+    }
+
+    private void convertStatusToParam(Status status, Map<String, Object> paramMap) {
         String statusString="";
         switch (status){
             case PROCESSING:
@@ -135,10 +153,5 @@ public class JdbcOrderRepository implements OrderRepository {
                 break;
         }
         paramMap.put("status",statusString);
-        try{
-            return namedParameterJdbcOperations.query(FIND_ORDER + _BY_STATUS, paramMap, new JdbcOrderRepository.OrderRowMapper());
-        }catch(EmptyResultDataAccessException e){//Order detail not find
-            return null;
-        }
     }
 }

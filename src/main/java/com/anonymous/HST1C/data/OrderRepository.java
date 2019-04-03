@@ -11,4 +11,5 @@ public interface OrderRepository {
     List<Order> findOrdersByItemid(int itemid);
     List<Order> findOrdersByUsername(String username);
     List<Order> findOrdersByStatus(Status status);
+    void updateOrderStatusByOrdernumber(int ordernumber,Status status);
 }
