@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpSession;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.Base64;
@@ -22,17 +23,25 @@ public class UserProfileController {
     }
     @RequestMapping(method = RequestMethod.GET)
     public String showUserProfile(
-            Model model) throws SQLException {
-        if(model.containsAttribute("username")){
-//            int userid=Integer.parseInt(model.asMap().get("userid").toString());
-            String username=model.asMap().get("username").toString();
-            Userinfo userinfo=userinfoRepository.findUserinfo(username);
+            Model model,HttpSession session) throws SQLException {
+        Object usernameAttribute=session.getAttribute("username");
+        if(usernameAttribute!=null){
+            Userinfo userinfo = userinfoRepository.findUserinfo(usernameAttribute.toString());
             model.addAttribute(userinfo);
-            byte[] imageBytes=userinfo.getIconBytes();
-            String imageBase64=Base64.getEncoder().encodeToString(imageBytes);
-            model.addAttribute("userIcon",imageBase64);
-            //blob.free()?
-            return "profile";
+            byte[] imageBytes = userinfo.getIconBytes();
+            String imageBase64 = Base64.getEncoder().encodeToString(imageBytes);
+            model.addAttribute("userIcon", imageBase64);
+        }else {
+            if (model.containsAttribute("username")) {
+//            int userid=Integer.parseInt(model.asMap().get("userid").toString());
+                String username = model.asMap().get("username").toString();
+                Userinfo userinfo = userinfoRepository.findUserinfo(username);
+                model.addAttribute(userinfo);
+                byte[] imageBytes = userinfo.getIconBytes();
+                String imageBase64 = Base64.getEncoder().encodeToString(imageBytes);
+                model.addAttribute("userIcon", imageBase64);
+                return "profile";
+            }
         }
         return "profile";//login page?
     }

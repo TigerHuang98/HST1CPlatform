@@ -19,6 +19,7 @@ dependencies {
     compile "org.springframework.security:spring-security-web:$springSecurityVersion"
     compile "com.h2database:h2:$h2Version"
     compile "org.mariadb.jdbc:mariadb-java-client:$mariadbVersion"
+    compile "mysql:mysql-connector-java:$mysqlVersion"
     compile "javax.servlet:jstl:$jstlVersion"
     compile "org.thymeleaf:thymeleaf-spring3:$thymeleafVersion"
 

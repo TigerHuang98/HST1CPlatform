@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
 import javax.sql.rowset.serial.SerialBlob;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -29,7 +30,7 @@ public class UserRegistrationController {
         this.loginRepository=loginRepository;
     }
     @RequestMapping(method = RequestMethod.POST)
-    public String processRegistration(UserRegistrationForm userRegistrationForm,RedirectAttributes model) throws IOException, SQLException {
+    public String processRegistration(UserRegistrationForm userRegistrationForm, RedirectAttributes model, HttpSession session) throws IOException, SQLException {
         BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
         String password=userRegistrationForm.getPassword();
         Userinfo userinfo=new Userinfo(
@@ -41,9 +42,8 @@ public class UserRegistrationController {
                 new SerialBlob(userRegistrationForm.getIcon().getBytes()));
         Login login=new Login(userRegistrationForm.getUsername(),passwordEncoder.encode(password),Role.CUSTOMER,-1);
         String username=userinfoRepository.addUserinfo(userinfo).getUsername();
-        int userid=loginRepository.addCustomerLogin(login);
-        model.addFlashAttribute("uesrid",userid);
-        model.addFlashAttribute("username",username);
+        loginRepository.addCustomerLogin(login);
+        session.setAttribute("username",username);
         return "redirect:/profile";
     }
     @RequestMapping(method = RequestMethod.GET)

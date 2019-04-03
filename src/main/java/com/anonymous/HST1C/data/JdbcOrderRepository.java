@@ -27,6 +27,7 @@ public class JdbcOrderRepository implements OrderRepository {
     private static final String _BY_ID="WHERE `ordernumber`=:ordernumber";
     private static final String _BY_ITEMID="WHERE `itemid`=:itemid";
     private static final String _BY_USERNAME="WHERE `username`=:username";
+    private static final String _BY_STATUS="WHERE `status`=:status";
 
     private static final class OrderRowMapper implements RowMapper<Order> {
 
@@ -113,6 +114,17 @@ public class JdbcOrderRepository implements OrderRepository {
         paramMap.put("username",username);
         try{
             return namedParameterJdbcOperations.query(FIND_ORDER + _BY_USERNAME, paramMap, new JdbcOrderRepository.OrderRowMapper());
+        }catch(EmptyResultDataAccessException e){//Order detail not find
+            return null;
+        }
+    }
+
+    @Override
+    public List<Order> findOrdersByStatus(Status status) {
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("status",status);
+        try{
+            return namedParameterJdbcOperations.query(FIND_ORDER + _BY_STATUS, paramMap, new JdbcOrderRepository.OrderRowMapper());
         }catch(EmptyResultDataAccessException e){//Order detail not find
             return null;
         }

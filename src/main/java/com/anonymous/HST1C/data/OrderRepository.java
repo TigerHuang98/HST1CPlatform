@@ -1,6 +1,7 @@
 package com.anonymous.HST1C.data;
 
 import com.anonymous.HST1C.Order;
+import com.anonymous.HST1C.Status;
 
 import java.util.List;
 
@@ -9,4 +10,5 @@ public interface OrderRepository {
     Order findOrderByOrdernumber(int ordernumber);
     List<Order> findOrdersByItemid(int itemid);
     List<Order> findOrdersByUsername(String username);
+    List<Order> findOrdersByStatus(Status status);
 }
