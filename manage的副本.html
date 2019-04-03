@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>staff</title>
+	<!--//tags -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="" />
+	
+	<script type="application/x-javascript">
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!--//tags -->
+	<link href="new1.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="new2.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="new3.css" rel="stylesheet">
+	<!-- //for bootstrap working -->
+	
+	 <script type ="text/javascript" >
+
+    function mytime() {
+
+        var a = new Date();
+
+        var b = a.getHours();
+
+        var c = a.getMinutes();
+
+        document.getElementById("time").innerHTML = b +":" + c;
+
+    }
+
+    setInterval(function () { mytime() }, 1000);
+
+</script>
+   
+    <script>  
+        window.onload = function(){   
+            var arrIcon = ['http://www.xttblog.com/icons/favicon.ico','http://www.xttblog.com/wp-content/uploads/2016/03/123.png'];   
+            var num = 0;     //控制头像改变   
+            var iNow = -1;    //用来累加改变左右浮动   
+            var icon = document.getElementById('user_face_icon').getElementsByTagName('img');   
+            var btn = document.getElementById('btn');   
+            var text = document.getElementById('text1');   
+            var content1 = document.getElementById("container1").getElementsByTagName('ul')[0];   
+            var img = content1.getElementsByTagName('img');   
+            var span = content1.getElementsByTagName('span');   
+  
+            icon[0].onclick = function(){   
+                if(num==0){   
+                    this.src = arrIcon[1];   
+                    num = 1;   
+                }else if(num==1){   
+                    this.src = arrIcon[0];   
+                    num = 0;   
+                }                   
+            }   
+            btn.onclick = function(){   
+                if(text.value ==''){   
+                    alert('The message cannot be empty!');   
+                }else {   
+                    content1.innerHTML += '<li><img src="'+arrIcon[num]+'"><span>'+text.value+'</span></li>';   
+                    iNow++;   
+                    if(num==0){   
+                        img[iNow].className += 'imgright';   
+                        span[iNow].className += 'spanright';   
+                    }else {   
+                        img[iNow].className += 'imgleft';   
+                        span[iNow].className += 'spanleft';   
+                    }   
+                    text.value = '';   
+     // 内容过多时,将滚动条放置到最底端   
+     content1content1.scrollTop=content1.scrollHeight;     
+                }   
+            }   
+        }   
+    </script>  
+    <link rel="stylesheet" type="text/css" href="talk2.css">
+</head>
+<body>
+	<!-- header -->
+	<div class="header" id="home">
+		<div class="content white agile-info">
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">head</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+					</div>
+					<!--/.navbar-header-->
+
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<nav class="link-effect-2" id="link-effect-2">
+							<span><ul class="nav navbar-nav">
+								<li><a href="home.html" class="effect-3">home</a></li>
+								<li><a href="claim.html" class="effect-3">Manage Claim</a></li>
+
+								<li><a href="log.html" class="effect-3">log out</a></li>
+							</ul></span>
+						</nav>
+					</div>
+					<!--/.navbar-collapse-->
+					<!--/.navbar-->
+				</div>
+			</nav>
+		</div>
+	</div>
+	<!-- banner -->
+	<div class="inner_page_agile">
+		<h3>Manage Claim</h3>
+		<p>Add Some Short Description</p>
+
+	</div>
+	<!--//banner -->
+	<!-- banner -->
+	<div class="services-breadcrumb_w3layouts">
+		<div class="inner_breadcrumb">
+
+			<ul class="short_w3ls"_w3ls>
+				<span><li><a href="home.html">Home</a><span>|</span></li></span>
+				<span><li>Manage</li></span>
+			</ul>
+		</div>
+	</div>
+	
+	<!-- /mid-services -->
+	<div class="mid_services">
+
+		<div class="col-md-12 according_inner_grids">
+			<h3 class="agile_heading two"><span>Claim processing</span></h3> 
+
+
+	
+								<table style="border-style: none;color: black;width: 1310px;text-align: center;" border="1">
+									<tr>
+										<th>Order Number</th>
+										<th>User Name</th>
+										<th>Item Name</th>
+										<th>Item Description</th>
+										<th>Casuse for Claim</th>
+										<th style="color: blue;" colspan ="3">Work Field:</th>
+									</tr>
+									<tr>
+										<td> </td>
+										<td> </td>
+										<td> </td>
+										<td> </td>
+										<td> </td>
+								<td align="center" colspan="3"><input type="button" name="agree" value="agree" id="agree" style="width: 80px;height: 25px;background-color: #7cfc00;border: none;color: black">
+								<input type="button" name="disagree" value="disagree" id="disagree" style="margin-left: 20px;width: 80px;height: 25px;background-color: grey;border: none;color: black">
+
+								<button style="margin-left: 50px;background-color: white;background-color: orange;border: none;width: 100px;border-radius: 25px;height: 25px" class="pa_italic collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false"
+								    aria-controls="collapseTwo">
+							  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span><i class="glyphicon glyphicon-minus" aria-hidden="true"></i>contact
+							</button></td>
+						</tr>
+							</table>
+
+
+						<div id="collapseTwo" class="panel-collapse collapse " role="tabpanel" aria-labelledby="headingTwo">
+							
+<div id="container1">  
+        <div class="header1">  
+            <span style="float: left;">chat box</span>  
+            <p id="time" style="float: right;"></p> 
+        </div>  
+        <ul class="content1">  
+  </ul>  
+        <div class="footer1">  
+            <div id="user_face_icon">  
+                <img src="http://www.xttblog.com/icons/favicon.ico" alt="">  
+            </div>  
+            <input id="text1" type="text" placeholder="say something..">  
+            <span id="btn">send</span>  
+        </div>  
+    </div>  
+
+							
+						</div>
+
+
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+	<!-- //mid-services -->
+	<!-- footer -->
+	<div class="footer_top_agileits">
+		<div class="container">
+			<div class="col-md-4 footer_grid">
+				<h3><span>About Us</span></h3>
+				<p><span>Our information.</span>
+				</p>
+			</div>
+			<div class="col-md-4 footer_grid">
+				<h3><span>Latest News</span></h3>
+				<ul class="footer_grid_list">
+					<span><li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+						<a href="single.html" >News (1)</a>
+					</li></span>
+					<span><li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+						<a href="single.html" >News (2)</a>
+					</li></span>
+					<span><li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+						<a href="single.html" >News (3)</a>
+					</li></span>
+					<span><li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+						<a href="single.html" >News (4)</a>
+					</li></span>
+					<span><li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+						<a href="single.html" >News (5) </a>
+					</li></span>
+				</ul>
+			</div>
+			<div class="col-md-4 footer_grid">
+				<h3><span>Contact Info</span></h3>
+				<ul class="address">
+					<span><li><i class="fa fa-map-marker" aria-hidden="true"></i>100 Pingleyuan, Chaoyang District, <span>Beijing.</span></li></span>
+					<span><li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">info@Anonymous.com</a></li></span>
+					<br>
+					<span></script><li><i class="fa fa-phone" aria-hidden="true"></i>+01234 5678 8765</li></span>
+				</ul>
+			</div>
+			<div class="clearfix"> </div>
+			<div class="footer_grids">
+				<div class="col-md-4 footer_grid_left">
+					<h3><span>Sign up for our Newsletter</span></h3>
+				</div>
+				<div class="col-md-8 footer_grid_right">
+
+					<form action="#" method="post">
+						<input type="email" name="Email" placeholder="Enter Email Address..." required="">
+						<input type="submit" value="Submit">
+					</form>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+
+	<!-- //footer -->
+	<script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+
+	<script type="text/javascript" src="bootstrap.js"></script>
+</body>
+</html>
