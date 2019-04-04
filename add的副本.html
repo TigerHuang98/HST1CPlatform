@@ -19,14 +19,13 @@
 	</script>
 	<script type="text/javascript">
         function keepTwoDecimalFull(obj) {  
-        	var obj = document.getElementById("text5");
-        	obj.value = obj.value.replace(/[^\d.]/g,"");  //清除“数字”和“.”以外的字符   
+        	 
+            obj.value = obj.value.replace(/[^\d.]/g,"");  //清除“数字”和“.”以外的字符           	
   			obj.value = obj.value.replace(/\.{2,}/g,"."); //只保留第一个. 清除多余的   
   			obj.value = obj.value.replace(".","$#$").replace(/\./g,"").replace("$#$",".");  
   			obj.value = obj.value.replace(/^(\-)*(\d+)\.(\d\d).*$/,'$1$2.$3');//只能输入两个小数   
   			if(obj.value.indexOf(".")< 0 && obj.value !=""){//以上已经过滤，此处控制的是如果没有小数点，首位不能为类似于 01、02的金额  
    				obj.value = parseFloat(obj.value);  
-   				obj.value = obj.value.replace(/^(\-)*(\d+)\.*$/,'$1$2.00');
   			}  
   			
 
@@ -104,7 +103,7 @@
 			<br> <br>
 			<div>
 				<div style="float: left;"><h6 style="margin-left: 300px;font-size: 1.5em;font-weight: 500"><span>Item photo:</span></h6></div>
-				<div style="float: left;"><input type=text id=text2 name="text2" style="width: 100px;margin-left: 100px" ></div>
+				<div style="float: left;"><img src="" alt="" id="picture" class="item_picture" style="width: 100px;margin-left: 100px"></div>	
 				<div style="float: left;"><input type=button value="Browse" id="Browse" onclick="aa()" style="margin-left: 50px;background-color: orange;border-radius: 50px"></div>
 			</div>
 			<br> <br>
@@ -120,20 +119,20 @@
 			<br><br>
 			<div style="margin-top: 180px">
 				<div style="float: left;"><h6 style="margin-left: 300px;font-size: 1.5em;font-weight: 500"><span>Item price($):</span></h6></div>
-				<div style="float: left;"><input type="text" id="text5" name="text5" style="width: 100px;margin-left: 80px" onmouseleave ="keepTwoDecimalFull(this)" ></div>
+				<div style="float: left;"><input type="text" id="text5" name="text5" style="width: 100px;margin-left: 80px" onkeyup ="keepTwoDecimalFull(this)" ></div>
 				
 			</div>
 			<br> <br><br>
 			<div>
-				<div style="float: left;"><h6 style="margin-left: 300px;font-size: 1.5em;font-weight: 500"><span>Casuse for claim:</span></h6></div>
-				<div style="float:left;"><input type=text id=text6 name="text6" style="width: 400px;height: 200px;margin-left:30px" ></div>
+				<div style="float: left;"><h6 style="margin-left: 300px;font-size: 1.5em;font-weight: 500"><span>Lost Date:</span></h6></div>
+				<div style="float:left;"><input type="Date" id="Lost_date" name="Date" style="width: 150px;height: 30px;margin-left:115px" ></div>
 			</div>
 		</form>
 
 
-		<div style="margin-top: 300px;margin-bottom: 30px">
-			 <div style="float: left;"><input type="button" name="return" value="🔙 Main Interface" style="margin-left: 150px;width: 180px;height: 50px;background-color: lightgreen;font-size: 1.2em;font-weight: 500;border-radius: 50px" class="return" onclick="window.location.href='claim.html'"></div>
-			 <div style="float: left;"><input type="submit" name="submit" value="submit" style="margin-left: 700px;width: 180px;height: 50px;background-color: red;font-size: 1.2em;font-weight: 500;border-radius: 50px" class="return" onclick="window.location.href='submit.html'"></div>
+		<div style="margin-top: 150px;margin-bottom: 30px">
+			 <div style="float: left;"><input type="button" name="return" value="🔙 Claim Interface" style="margin-left: 150px;width: 180px;height: 50px;background-color: grey;font-size: 1.2em;font-weight: 500;border-radius: 50px" class="return" onclick="window.location.href='claim.html'"></div>
+			 <div style="float: left;"><input type="submit" name="submit" value="submit" style="margin-left: 700px;width: 180px;height: 50px;background-color: #7cfc00;font-size: 1.2em;font-weight: 500;border-radius: 50px" class="return" onclick="window.location.href='submit.html'"></div>
 		</div>
 		
 	</div>

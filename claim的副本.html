@@ -81,14 +81,25 @@
 		</div>
 	</div>
 	<div class="col-md-12 according_inner_grids">
-		<div>
-			<div style="float: left;"><h3 class="agile_heading two"><span>Claim processing</span></h3></div>
-			<div style="float: left;"><input type="button" value="Add Item" name="addItem" id="addItem" style="height: 40px;margin-left: 600px;border-radius: 50px;background-color: lightblue;margin-top: 5px" onclick="window.location.href='add.html'"></div> 
-		</div>
-		<div style="margin-top: 100px">
-			<div style="float: left;margin-left: 150px"><input type="text" name="claim1" id="claim1" style="width: 500px"></div>
-			<div style="float: left;margin-left: 100px"><input type="button" name="viewinfo" id="view" value="view"></div>
-		</div>
+		<table id="item_table" style="border-style: none;color: black;width: 1300px;text-align: center;" border="1">
+			<tr>
+				<th>Order Number</th>
+				<th>Item Picture</th>
+				<th>Item Name</th>
+				<th>Description</th>
+				<th>Status</th>
+				<th style="color: blue;" >View Details:</th>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td><input type="button" name="View" value="View" id="view" style="width: 60px;height: 24px;background-color: #7cfc00;border: none;color: black;border-radius: 15px"></td>
+			</tr>
+		</table>
+	<input type="button" name="return" value="🔙 Main Interface" style="margin-left: 565px;margin-top: 200px;width: 180px;height: 50px;background-color: grey;font-size: 1.2em;font-weight: 500;border-radius: 50px" class="return" onclick="window.location.href='login.html'">
 	</div>
 	
 	<!-- footer -->
