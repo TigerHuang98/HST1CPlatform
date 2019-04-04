@@ -3,5 +3,5 @@ INSERT INTO login(`username`,`password`,`uid`) values('tiger','$2a$10$srcCNi2tjA
 INSERT INTO userinfo (`username`,`gender`,`icon`) values('user','M','00');
 INSERT INTO login(`username`,`password`,`uid`) values('user','$2a$10$MUOACD/.SQMUPFEFFbSR..Bz6TykjLNrk40J74025l5AcYho9elMW','customer');
 INSERT INTO item(`picture`,`price`,`itemname`,`username`,`description`) values('00','0.03','name','user','des');
-INSERT INTO `order`(`username`,`itemid`,`status`,`lostdate`) values('user','1','processing','2018-04-01');
+INSERT INTO `ordertable`(`username`,`itemid`,`status`,`lostdate`) values('user','1','processing','2018-04-01');
 -- (tiger,123456)

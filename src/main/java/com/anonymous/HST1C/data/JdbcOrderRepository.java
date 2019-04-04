@@ -22,9 +22,9 @@ import java.util.Map;
 public class JdbcOrderRepository implements OrderRepository {
 
 
-    private static final String ADD_ORDER="INSERT INTO `order`(`orderdate`,`username`,`itemid`,`status`,`lostdate`) VALUES (:orderdate,:username,:itemid,:status,:lostdate)";
-    private static final String FIND_ORDER="SELECT `ordernumber`,`orderdate`,`username`,`itemid`,`status`,`lostdate` FROM `order` ";
-    private static final String UPDATE_ORDER_STATUS="UPDATE `order` SET status=:status ";
+    private static final String ADD_ORDER="INSERT INTO `ordertable`(`username`,`itemid`,`status`,`lostdate`) VALUES (:username,:itemid,:status,:lostdate)";
+    private static final String FIND_ORDER="SELECT `ordernumber`,`orderdate`,`username`,`itemid`,`status`,`lostdate` FROM `ordertable` ";
+    private static final String UPDATE_ORDER_STATUS="UPDATE `ordertable` SET status=:status ";
     private static final String _BY_ID="WHERE `ordernumber`=:ordernumber";
     private static final String _BY_ITEMID="WHERE `itemid`=:itemid";
     private static final String _BY_USERNAME="WHERE `username`=:username";
@@ -77,7 +77,7 @@ public class JdbcOrderRepository implements OrderRepository {
         }
         KeyHolder keyHolder=new GeneratedKeyHolder();
         Map<String,Object> paramMap=new HashMap<>();
-        paramMap.put("orderdate",order.getOrderdate());
+//        paramMap.put("orderdate",order.getOrderdate());
         paramMap.put("username",order.getUsername());
         paramMap.put("itemid",order.getItemid());
         paramMap.put("status",statusString);

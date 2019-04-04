@@ -33,10 +33,10 @@ CREATE TABLE `item` (
                         CONSTRAINT `i_username` FOREIGN KEY (`username`) REFERENCES `userinfo` (`username`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `order`;
-CREATE TABLE `order` (
+DROP TABLE IF EXISTS `ordertable`;
+CREATE TABLE `ordertable` (
                          `ordernumber` int(11) NOT NULL AUTO_INCREMENT,
-                         `orderdate` datetime DEFAULT NULL,
+                         `orderdate` datetime DEFAULT CURRENT_TIMESTAMP,
                          `username` varchar(255) NOT NULL,
                          `itemid` int(11) NOT NULL,
                          `status` enum('processing','denying','approving') DEFAULT NULL,
@@ -54,5 +54,5 @@ CREATE TABLE `message` (
                            `ordernumber` int(11) NOT NULL,
                            `issend` enum('N','Y') NOT NULL,
                            PRIMARY KEY (`messageid`),
-                           CONSTRAINT `m_ordernumber` FOREIGN KEY (`ordernumber`) REFERENCES `order` (`ordernumber`) ON DELETE CASCADE ON UPDATE CASCADE
+                           CONSTRAINT `m_ordernumber` FOREIGN KEY (`ordernumber`) REFERENCES `ordertable` (`ordernumber`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
