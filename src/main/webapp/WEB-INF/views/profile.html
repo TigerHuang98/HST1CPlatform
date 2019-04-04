@@ -11,7 +11,7 @@
 <span th:text="${userinfo.phonenumber}">phone number</span><br/>
 <span th:text="${userinfo.emailaddress}">email</span><br/>
 <span th:text="${userinfo.birthdate}">birthday</span><br/>
-<img th:src="${userIcon} == null ? _ : @{'data:image/png;base64,'+${userIcon}}"/><br/>
+<img th:src="${userIcon} == null ? _ : @{'data:image/png;base64,'+${userIcon}}" height="64" width="64"/><br/>
 <a th:href="@{./}">Back</a>
 <a th:href="@{claim_list}">claim_list</a>
 </body>
