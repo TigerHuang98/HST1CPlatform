@@ -67,7 +67,7 @@ public class JdbcMessageRepository implements MessageRepository {
         Map<String,Object> paramMap=new HashMap<>();
         paramMap.put("text",message.getText());
         paramMap.put("messagedate",message.getMessagedate());
-        paramMap.put("ordernunmber",message.getOrdernumber());
+        paramMap.put("ordernumber",message.getOrdernumber());
         paramMap.put("issend",isSendString);
         SqlParameterSource paramSource=new MapSqlParameterSource(paramMap);
         namedParameterJdbcOperations.update(ADD_MESSAGE,paramSource,keyHolder);

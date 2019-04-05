@@ -3,6 +3,8 @@ INSERT INTO login(`username`,`password`,`uid`) values('tiger','$2a$10$srcCNi2tjA
 INSERT INTO userinfo (`username`,`gender`,`icon`) values('user','M','00');
 INSERT INTO login(`username`,`password`,`uid`) values('user','$2a$10$MUOACD/.SQMUPFEFFbSR..Bz6TykjLNrk40J74025l5AcYho9elMW','customer');
 INSERT INTO item(`picture`,`price`,`itemname`,`username`,`description`) values('00','0.03','name','user','des');
+INSERT INTO item(`picture`,`price`,`itemname`,`username`,`description`) values('00','0.02','item2','user','des2');
 INSERT INTO `ordertable`(`username`,`itemid`,`status`,`lostdate`) values('user','1','processing','2018-04-01');
-INSERT INTO `message`(`text`,`messagedate`,`ordernumber`,`issend`) values('hey!','2019-04-04 15:15:12.175','1','N');
+INSERT INTO `ordertable`(`username`,`itemid`,`status`,`lostdate`) values('user','2','processing','2018-04-01');
+INSERT INTO `message`(`text`,`messagedate`,`ordernumber`,`issend`) values('hey!','2019-04-04 15:15:12.175','1','Y');
 -- (tiger,123456)

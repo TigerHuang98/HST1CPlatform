@@ -53,6 +53,10 @@ public class Message {
         return ordernumber;
     }
 
+    public boolean isIssend() {//Don't remove this, or thymeleaf binding will fail
+        return isSend();
+    }
+
     public boolean isSend() {
         return issend;
     }
