@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sign in page</title>
+    <title>Claim Details</title>
     <!--/tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -50,9 +50,22 @@
                         <ul class="nav navbar-nav">
                             <li class="active"><a href="a-first1.html" class="effect-3"><span>Home</span></a></li>
                             <li>
+                                <!--图标按钮-->
+                                <!--<button type="button" class="btn btn-default btn-lg" style="font-size: 13px" >-->
+                                <!--<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Log out-->
+                                <!--</button>-->
+                                <button type="button" class="btn btn-default btn-lg" style="font-size: 13px" >
+                                    <span >Log out</span>
+                                </button>
+                            </li>
+                            <li>
                                 <div class="dropdown">
+                                    <!--<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="height: 38px">-->
+                                    <!--<span class="glyphicon glyphicon-globe" aria-hidden="true"></span>-->
+                                    <!--<span class="caret"></span>-->
+                                    <!--</button>-->
                                     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="height: 38px">
-                                        <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                                        <span>language</span>
                                         <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -72,68 +85,71 @@
         </nav>
     </div>
 </div>
-<div class="inner_page_agile" style="margin-bottom: 50px">
+<div class="inner_page_agile" style="margin-bottom: 40px">
     <h3><span>Claim details</span></h3>
     <p><span>View the details of the claim</span></p>
 </div>
-<div class="form-horizontal" >
+<div class="form-horizontal center-block" style="background-color: #eeeded;width: 55%;padding-top: 30px;padding-bottom: 50px;border-radius: 20px;margin-bottom: 30px">
 
     <fieldset>
-        <label class="col-sm-5 control-label" ><span>Order number :</span></label>
-        <div class="col-sm-5 input-group">
+        <label class="col-sm-6 control-label" style="padding-top: 0px" ><span>Order number :</span></label>
+        <div class="col-sm-6 input-group">
             <span type="text" style="width: 300px">1234567</span>
             <!--<p class="help-block">It will be used when log in</p>-->
         </div>
 
-        <label class="col-sm-5 control-label" ><span>Items photos :</span></label>
-        <div class="col-sm-5 input-group">
+        <label class="col-sm-6 control-label" style="padding-top: 0px" ><span>Items photos :</span></label>
+        <div class="col-sm-6 input-group">
             <img src="images/clothes.png" alt="Item photo" class="img-rounded">
         </div>
 
-        <label class="col-sm-5 control-label"><span>Item name :</span></label>
-        <div class="col-sm-5 input-group">
+        <label class="col-sm-6 control-label" style="padding-top: 0px"><span>Item name :</span></label>
+        <div class="col-sm-6 input-group">
             <span type="text" style="width: 300px">coat</span>
         </div>
 
-        <label class="col-sm-5 control-label" ><span>Item price ($) :</span></label>
-        <div class="col-sm-5 input-group">
+        <label class="col-sm-6 control-label" style="padding-top: 0px"><span>Item price ($) :</span></label>
+        <div class="col-sm-6 input-group">
             <span type="text" style="width: 300px">500.00</span>
         </div>
 
-        <label class="col-sm-5 control-label" ><span>Item description :</span></label>
-        <div class="col-sm-5 input-group">
-            <span type="text" style="width: 300px">It is a white coat with four buttons...</span>
+        <label class="col-sm-6 control-label" style="padding-top: 0px" ><span>Item description :</span></label>
+        <div class="col-sm-6 input-group">
+            <span type="text" style="width: 300px">It is a white coat..</span>
         </div>
 
-        <label class="col-sm-5 control-label" ><span>Claim state :</span></label>
-        <div class="col-sm-5 input-group">
+        <label class="col-sm-6 control-label" style="padding-top: 0px"><span>Claim state :</span></label>
+        <div class="col-sm-6 input-group">
             <span type="text" style="width: 300px">refused</span>
         </div>
 
         <label class="col-sm-3 control-label" ></label>
-        <div class="form-group col-sm-5">
-            <span class="input-group-addon" style="width: 500px"><span>Consultation record</span></span>
+        <div class="form-group">
+            <span class="input-group-addon center-block" style="width: 500px;margin-bottom: -25px" ><span>Consultation record</span></span>
 
-        <label class="col-sm-3 control-label"></label>
-        <div class="form-group col-sm-5">
-            <textarea class="form-control" style="width: 500px" rows="5">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</textarea>
+        <label class="control-label"></label>
+        <div class="form-group">
+            <p class="form-control center-block pre-scrollable" style="width: 500px;height: 150px;margin-bottom: -15px">aaaaabhtbygbtyyyyyyyyy<br/>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy<br/>yyyyyyyyyyyyyyyyyyyyyyyyyyy<br/>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyy<br/>yaaaafffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
         </div>
 
-        <label class="col-sm-5 control-label"></label>
-        <input type="email" class="form-control col-sm-5" id="exampleInputEmail2" placeholder="Please enter the message" style="width: 400px">
-            <button type="submit" class="btn btn-default col-md-2"><span>Send</span></button>
-
-        <label class="col-sm-5"></label>
-        <div class="col-sm-4 controls">
-            <!-- Back Button -->
-            <button class="btn btn-inverse"><a href="#"><span>Back</span></a></button>
         </div>
+        <div class="text-center">
+            <div class="center-block col-sm-12" style="list-style-type: none" > <input   type="text" placeholder="Please enter the message" style="width: 400px">
+                <button type="submit" class="btn btn-default btn-success" style=" width: 100px"><span>Send</span></button></div>
+        </div>
+
+
+
 
 
     </fieldset>
 </div>
+<div class="col-sm-12 center-block ">
+    <!-- Back Button -->
+    <button class="btn btn-inverse" style="margin-left: 45px;margin-top: -70px;margin-bottom: 125px;width: 10%;height: 40px;font-size: 15px;"><a href="#"><span><< Back</span></a></button>
+</div>
 <!-- footer -->
-<div class="footer_top_agileits">
+<div class="footer_top_agileits" style="padding-top: 30px">
     <div class="container">
         <div class="col-md-6 footer_grid">
             <h3><span>About Us</span></h3>

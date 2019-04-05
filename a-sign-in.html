@@ -51,9 +51,13 @@
                             <li class="active"><a href="a-first1.html" class="effect-3"><span>Home</span></a></li>
                             <li>
                                 <div class="dropdown">
+                                    <!--<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="height: 38px">-->
+                                        <!--<span class="glyphicon glyphicon-globe" aria-hidden="true"></span>-->
+                                        <!--<span class="caret"></span>-->
+                                    <!--</button>-->
                                     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="height: 38px">
-                                        <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
-                                        <span class="caret"></span>
+                                    <span>language</span>
+                                    <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                                         <li><a href="#">English</a></li>
@@ -72,47 +76,63 @@
         </nav>
     </div>
 </div>
-<div class="inner_page_agile" style="margin-bottom: 50px">
+<div class="inner_page_agile" style="height: 800px">
     <h3>Sign in</h3>
-    <p>Register for your Hibernia-Sino account</p>
+    <p style="margin-top:20px;margin-bottom: 40px">Please fill in the following information:</p>
+    <div class="center-block" style="background-color:rgba(255, 255, 255, 0.5);width: 450px; border-radius: 10px ;text-align: center" >
+        <form class="form-horizontal" style="padding: 50px" >
+                <!-- Username-->
+                <label class="col-sm-5 control-label" ><span>Username</span></label>
+                <div class="col-sm-5 input-group">
+                    <input type="text" class="form-control"  style="width: 180px">
+                    <!--<p class="help-block">It will be used when log in</p>-->
+                </div>
+                <!-- Keyword-->
+                <label class="col-sm-5 control-label" ><span>Password</span></label>
+                <div class="col-sm-5 input-group">
+                    <input type="password" class="form-control " style="width: 180px"/>
+                </div>
+                <!--gender-->
+            <label class="col-sm-5 control-label" ><span>Gender</span></label>
+            <select class="col-sm-5 form-control input-group" style="width: 100px">
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+                <!-- Phone number-->
+                <label class="col-sm-5 control-label"><span>Phone number</span></label>
+                <div class="col-sm-5 input-group">
+                    <input type="text" class="form-control"  style="width: 180px"/>
+                </div>
+                <!-- Email address -->
+                <label class="col-sm-5 control-label" >Email address</label>
+                <div class="col-sm-5 input-group">
+                    <input type="text" class="form-control"  style="width: 180px"/>
+                </div>
+            <!-- Birthday -->
+            <label class="col-sm-5 control-label" >Date of birth</label>
+            <div class="col-sm-5 input-group">
+                <input type="date" class="form-control"  style="width: 180px"/>
+            </div>
+            <!-- Picture -->
+            <label class="col-sm-5 control-label" >Picture</label>
+            <div class="col-md-5 input-group">
+                <input type="file" class="form-control" style="width: 180px;opacity: initial;border: 0px;background-color: transparent;margin-left: -55px"/>
+            </div>
 
+                <div class="col-sm-5 controls">
+
+                    <ul>
+                    <!-- Cancel Button -->
+                    <li class="col-sm-4" style="list-style-type: none"><button class="btn btn-inverse"><a href="a-first1.html"><span>Cancel</span></a></button></li>
+                    <!-- OK Button -->
+                    <li class="col-sm-8"  style="list-style-type:none"><button type="submit" class="btn btn-success" style="margin-left: 190px"> <a href="a-sign-in-successful.html"><span>Submit</span></a></button></li>
+                    </ul>
+                </div>
+
+        </form>
+    </div>
 </div>
 
-<form class="form-horizontal" >
-    <fieldset>
-        <!-- Username-->
-        <label class="col-sm-5 control-label" ><span>Username</span></label>
-        <div class="col-sm-5 input-group">
-            <input type="text" class="form-control" placeholder="Please enter the username" aria-describedby="sizing-addon2" style="width: 300px">
-            <!--<p class="help-block">It will be used when log in</p>-->
-        </div>
-        <!-- Keyword-->
-        <label class="col-sm-5 control-label" ><span>Keyword</span></label>
-        <div class="col-sm-5 input-group">
-            <input type="text" class="form-control " placeholder="Please enter the keyword" aria-describedby="sizing-addon2" style="width: 300px">
-        </div>
-        <!-- Keyword again-->
-        <label class="col-sm-5 control-label"><span>Keyword again</span></label>
-        <div class="col-sm-5 input-group">
-            <input type="text" class="form-control"  placeholder="Please enter the keyword again" aria-describedby="sizing-addon2" style="width: 300px">
-        </div>
-        <!-- agree -->
-        <label class="col-sm-5 control-label" > </label>
-        <div class="col-sm-5 input-group">
-            <input type="checkbox" value="agree" name=""> <span>I agree with the Privacy Service Agreement</span>
-        </div>
-
-        <label class="col-sm-5"> </label>
-        <div class="col-sm-5 controls">
-            <!-- Cancel Button -->
-            <button class="btn btn-inverse"><a href="a-first1.html"><span>Cancel</span></a></button>
-            <!-- OK Button -->
-           <button type="submit" class="btn btn-success"> <a href="a-sign-in-successful.html"><span>Submit</span></a></button>
-        </div>
-
-
-    </fieldset>
-</form>
 <!-- footer -->
 <div class="footer_top_agileits">
     <div class="container">
