@@ -508,6 +508,7 @@ label {
 
 .search_top input[type="text"],
 .search_top input[type="submit"],
+.search_top input[type="password"],
 .search_top input[type="button"]{
 	width: 28%;
 	color: #777;
@@ -1386,7 +1387,7 @@ p.reg {
 
 .inner_page_agile {
 	text-align: center;
-	background: url(../images/candidate.jpg) no-repeat 0px 0px;
+	background: url(../images/banner1.jpg) no-repeat 0px 0px;
 	background-size: cover;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -2679,8 +2680,7 @@ h2.typoh2 {
 /*-- contact --*/
 
 .w3layouts_mail_grid input[type="text"],
-.w3layouts_mail_grid input[type="email"],
-.w3layouts_mail_grid textarea {
+.w3layouts_mail_grid input[type="password"]{
 	outline: none;
 	padding: 14px;
 	font-size: 14px;
