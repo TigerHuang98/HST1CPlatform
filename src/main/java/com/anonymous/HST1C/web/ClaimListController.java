@@ -26,7 +26,10 @@ public class ClaimListController {
     }
     @RequestMapping(method = RequestMethod.GET)
     public String showClaimList(Model model,HttpSession session){
-        model.addAttribute("orders",orderRepository.findOrdersByUsername(session.getAttribute("username").toString()));//TODO:null?
+        if(session.getAttribute("username")==null){
+            return "redirect:/";//TODO:login page
+        }
+        model.addAttribute("orders",orderRepository.findOrdersByUsername(session.getAttribute("username").toString()));//TODO:add null attribute?
         return "claim_list";
     }
 }

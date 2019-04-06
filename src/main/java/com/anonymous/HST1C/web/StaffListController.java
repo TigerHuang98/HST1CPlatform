@@ -2,10 +2,12 @@ package com.anonymous.HST1C.web;
 
 import com.anonymous.HST1C.Message;
 import com.anonymous.HST1C.Order;
+import com.anonymous.HST1C.Role;
 import com.anonymous.HST1C.Status;
 import com.anonymous.HST1C.data.ItemRepository;
 import com.anonymous.HST1C.data.MessageRepository;
 import com.anonymous.HST1C.data.OrderRepository;
+import com.anonymous.HST1C.data.LoginRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,18 +22,26 @@ import java.util.List;
 @RequestMapping("/staff_list")
 
 public class StaffListController {
+    private LoginRepository LoginRepository;
     private ItemRepository itemRepository;
     private OrderRepository orderRepository;
     private MessageRepository messageRepository;
 
     @Autowired
-    public StaffListController(ItemRepository itemRepository, OrderRepository orderRepository, MessageRepository messageRepository) {
+    public StaffListController(LoginRepository LoginRepository,ItemRepository itemRepository, OrderRepository orderRepository, MessageRepository messageRepository) {
+        this.LoginRepository = LoginRepository;
         this.itemRepository = itemRepository;
         this.orderRepository = orderRepository;
         this.messageRepository = messageRepository;
     }
     @RequestMapping(method = RequestMethod.GET)
-    public String showClaimList(Model model){
+    public String showClaimList(Model model,HttpSession session){
+        if(session.getAttribute("username")==null){
+            return "redirect:/";
+        }
+        if(LoginRepository.findLoginByUsername(session.getAttribute("username").toString()).getUid()!= Role.STAFF){//incorrect user login
+            return "redirect:/claim_list";
+        }
 //        if(model.containsAttribute("messages")&&model.containsAttribute("message-linked-ordernumber")) {
 //            int message_linked_ordernumber = Integer.parseInt(model.asMap().get("message-linked-ordernumber").toString());
 //            Object messagesInModel = model.asMap().get("messages");
