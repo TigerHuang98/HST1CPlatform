@@ -25,8 +25,9 @@ public class HomeController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public String showHome(Model model){
+    public String showHome(Model model,HttpSession session){
         model.addAttribute(new LoginForm());
+        model.addAttribute("role",session.getAttribute("role"));
         return "home";
     }
     @RequestMapping(method = RequestMethod.POST)
@@ -43,8 +44,10 @@ public class HomeController {
             model.addFlashAttribute("username",username);
             switch (login.getUid()){
                 case CUSTOMER:
+                    session.setAttribute("role",Role.CUSTOMER);
                     return "redirect:/claim_list";
                 case STAFF:
+                    session.setAttribute("role",Role.STAFF);
                     return "redirect:/staff_list";
                 default:
                     return "home";
