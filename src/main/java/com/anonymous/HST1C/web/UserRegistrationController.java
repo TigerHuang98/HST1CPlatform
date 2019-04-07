@@ -44,7 +44,7 @@ public class UserRegistrationController {
         String username=userinfoRepository.addUserinfo(userinfo).getUsername();
         loginRepository.addCustomerLogin(login);
         session.setAttribute("username",username);
-        return "redirect:/profile";
+        return "redirect:/register_successful";
     }
     @RequestMapping(method = RequestMethod.GET)
     public String showRegistrationForm(Model model){
