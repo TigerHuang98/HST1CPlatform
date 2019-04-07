@@ -43,6 +43,7 @@ public class UserProfileController {
                 return "profile";
             }
         }
+        model.addAttribute("role",session.getAttribute("role"));
         return "profile";//login page?
     }
 }

@@ -44,6 +44,14 @@ public class UserRegistrationController {
         String username=userinfoRepository.addUserinfo(userinfo).getUsername();
         loginRepository.addCustomerLogin(login);
         session.setAttribute("username",username);
+        switch (login.getUid()){
+            case CUSTOMER:
+                session.setAttribute("role",Role.CUSTOMER);
+                break;
+            case STAFF:
+                session.setAttribute("role",Role.STAFF);
+                break;
+        }
         return "redirect:/register_successful";
     }
     @RequestMapping(method = RequestMethod.GET)
