@@ -41,7 +41,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="a-first1.html">
+                    <a class="navbar-brand" th:href="@{./}">
                         <h1><span class="fa fa-signal" aria-hidden="true"></span> Hibernia-Sino <label> Travel Insurance </label></h1>
                     </a>
                 </div>
@@ -49,9 +49,10 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <nav class="link-effect-2" id="link-effect-2">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="a-first1.html" class="effect-3"><span>Home</span></a></li>
-                            <li class="effect-3"><a><span >Claim center</span></a></li>
-                            <li>
+                            <li class="active"><a th:href="@{./}" class="effect-3"><span>Home</span></a></li>
+                            <li th:if="${role==T(com.anonymous.HST1C.Role).CUSTOMER}" class="effect-3"><a><span >Claim center</span></a></li>
+                            <li th:if="${role==T(com.anonymous.HST1C.Role).STAFF}" class="effect-3"><a><span >Claim process center</span></a></li>
+                            <li th:unless="${role==null}">
                                 <!--图标按钮-->
                                 <!--<button type="button" class="btn btn-default btn-lg" style="font-size: 13px" >-->
                                 <!--<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Log out-->
@@ -71,8 +72,7 @@
                                         <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                        <li><a href="#">English</a></li>
-                                        <li><a href="#">中文</a></li>
+                                        <li><a th:href="@{'./'+#{theOtherLanguage}}"><span th:text="#{changeLanguage}"></span></a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -98,7 +98,7 @@
 <div class="tittle_head_w3ls">
     <h3 class="tittle" style="margin-top: 50px;margin-bottom:50px"><span>Registered successfully!</span></h3>
 </div>
-<p class="text-center"><a href="a-first1.html" class="btn btn-primary" role="button" style="margin-top: 40px;margin-bottom: 60px"><span>&lt;&lt; Back to the home page</span></a>
+<p class="text-center"><a th:href="@{./}" class="btn btn-primary" role="button" style="margin-top: 40px;margin-bottom: 60px"><span>&lt;&lt; Back to the home page</span></a></p>
     <!-- footer -->
     <div class="footer_top_agileits">
         <div class="container">
@@ -111,7 +111,7 @@
 <div class="col-md-6 footer_grid">
     <h3><span>Contact Info</span></h3>
     <ul class="address">
-        <li><i class="fa fa-map-marker" aria-hidden="true"></i><span>Beijing-Dublin International College,<span>Beijing,China.</span></span></li>
+        <li><i class="fa fa-map-marker" aria-hidden="true"></i><span style="margin:0px;display:inline;">Beijing-Dublin International College,Beijing,China.</span></li>
         <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">Group5_Anonymous@gmail.com</a></li>
         <li><i class="fa fa-phone" aria-hidden="true"></i>+8613888888888</li>
     </ul>
@@ -125,7 +125,7 @@
         <div class="footer_bottom">
             <div class="col-md-9 footer_bottom_grid">
                 <div class="footer_bottom1">
-                    <a href="index.html">
+                    <a th:href="@{./}">
                         <h2><span class="fa fa-signal" aria-hidden="true"></span> Hibernia-Sino <label><span>Travel Insurance</span></label></h2>
                     </a>
                     <p><span>Copyright &copy; Hibernia-Sino All rights reserved.</span></p>
