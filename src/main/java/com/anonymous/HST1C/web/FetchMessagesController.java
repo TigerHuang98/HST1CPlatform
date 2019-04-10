@@ -27,6 +27,7 @@ public class FetchMessagesController {
     public String fetchMessages(HiddenMessageForm hiddenMessageForm, RedirectAttributes model){
         List<Message> messages=new ArrayList<>();
         if(hiddenMessageForm!=null){
+            //TODO:check role?
             if(hiddenMessageForm.getText()!=null){
                 Message m=new Message(
                         -1,
