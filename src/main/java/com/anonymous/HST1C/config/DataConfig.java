@@ -22,7 +22,7 @@ public class DataConfig {
             ds.setDriverClassName("com.mysql.jdbc.Driver");
 //            ds.setUrl("jdbc:mariadb://localhost:3306/test");
 //            ds.setUrl("jdbc:mysql://47.94.214.88:3306/androidconn?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=true");
-            ds.setUrl("jdbc:mysql://localhost:3306/androidconn?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=true");
+            ds.setUrl("jdbc:mysql://localhost:3306/hsino?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=true");
             ds.setUsername("root");
             ds.setPassword("comp3030j");
 //            ds.setPassword("");

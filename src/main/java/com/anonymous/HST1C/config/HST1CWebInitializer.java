@@ -11,6 +11,7 @@ import javax.servlet.ServletRegistration;
 public class HST1CWebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     private static final String TEMPORARY_DIRECTORY="/tmp/";
+//    private static final String TEMPORARY_DIRECTORY="C:/Program Files/Apache Software Foundation/Tomcat 9.0/upload/";
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
