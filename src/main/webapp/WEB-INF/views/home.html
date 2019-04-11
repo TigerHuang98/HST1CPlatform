@@ -100,8 +100,8 @@
     <div class="item active">
       <div class="container">
         <div class="carousel-caption">
-          <h3><span>Welcome to <span>Hibernia-Sino</span></span></h3><!--此处替换整句-->
-          <p><span>Start your untroubled journey</span></p>
+          <h3><span th:text="#{home.welcometo}"> <span> Hibernia-Sino</span></span></h3><!--此处替换整句-->
+          <p><span th:text="#{home.welcomejourney}"></span></p>
           <!--<div class="agileits-button top_ban_agile">-->
           <!--<a class="btn btn-primary btn-lg" href="single.html">Read More »</a>-->
           <!--</div>-->
@@ -111,8 +111,8 @@
     <div class="item item2">
       <div class="container">
         <div class="carousel-caption">
-          <h3><span>Welcome to <span>Hibernia-Sino</span></span></h3>
-          <p><span>Start your untroubled journey</span></p>
+          <h3><span th:text="#{home.welcometo}"><span> Hibernia-Sino</span></span></h3>
+          <p><span th:text="#{home.welcomejourney}"></span></p>
           <!--<div class="agileits-button top_ban_agile">-->
           <!--<a class="btn btn-primary btn-lg" href="single.html">Click here »</a>-->
           <!--</div>-->
@@ -122,8 +122,8 @@
     <div class="item item3">
       <div class="container">
         <div class="carousel-caption">
-          <h3><span>Welcome to <span>Hibernia-Sino</span></span></h3>
-          <p><span>Start your untroubled journey</span></p>
+          <h3><span th:text="#{home.welcometo}"><span> Hibernia-Sino</span></span></h3>
+          <p><span th:text="#{home.welcomejourney}"></span></p>
           <!--<div class="agileits-button top_ban_agile">-->
           <!--<a class="btn btn-primary btn-lg" href="single.html">Read More »</a>-->
           <!--</div>-->
@@ -158,18 +158,12 @@
 <div class="banner-bottom">
   <div class="container">
     <div class="tittle_head_w3ls">
-      <h3 class="tittle"><span>Our Company</span></h3>
+      <h3 class="tittle"><span th:text="{home.introtitle}"></span></h3>
     </div>
     <div class="inner_sec_grids_info_w3ls">
       <div class="col-md-6 banner_bottom_left">
-        <h4>Employment opportunities for <span>Professionals</span></h4>
-        <p><span>Hibernia-Sino is a travel insurance company who specializes in travel between Ireland and China.
-                    The luggage insurance of Hibernia-Sino can provide customers with the safest luggage protection,
-                    which is not only reflected in the protection of luggage during the trip,
-                    but also reflected in the later claim processing.</span></p>
-        <p><span> In case of luggage damage or loss, the customer service staff will receive the customer's claim feedback in the first time,
-                    and timely and effective communicate with the customer to negotiate the claim scheme.
-                    The company will give you the most thoughtful service, so that you can relax to enjoy the comfort and pleasure of travel.</span></p>
+        <h4><span th:text="{home.intro}"></span></h4>
+        <p><span th:text="{home.introduction}"></span></p>
         <!--<ul class="some_agile_facts">-->
         <!--<li><span class="fa fa-briefcase" aria-hidden="true"></span><label>80</label> Corporate Programs</li>-->
         <!--<li><span class="fa fa-graduation-cap" aria-hidden="true"></span><label>49</label> Training Courses</li>-->
@@ -199,15 +193,14 @@
 <div class="footer_top_agileits">
   <div class="container">
     <div class="col-md-6 footer_grid">
-      <h3><span>About Us</span></h3>
-      <p><span>Nam libero tempore cum vulputate id est id, pretium semper enim. Morbi viverra congue nisi vel pulvinar posuere sapien
-                eros.</span>
+      <h3><span th:text="#{home.about}"></span></h3>
+      <p><span th:text="#{home.aboutus}"></span>
       </p>
     </div>
     <div class="col-md-6 footer_grid">
-      <h3><span>Contact Info</span></h3>
+      <h3><span th:text="#{home.contact}"></span></h3>
       <ul class="address">
-        <li><i class="fa fa-map-marker" aria-hidden="true"></i><span style="margin:0px;display:inline;">Beijing-Dublin International College,Beijing,China.</span></li>
+        <li><i class="fa fa-map-marker" aria-hidden="true"></i><span style="margin:0px;display:inline;" th:text="#{home.contactaddress}"></span></li>
         <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">Group5_Anonymous@gmail.com</a></li>
         <li><i class="fa fa-phone" aria-hidden="true"></i>+8613888888888</li>
       </ul>
@@ -222,9 +215,9 @@
       <div class="col-md-9 footer_bottom_grid">
         <div class="footer_bottom1">
           <a th:href="@{./}">
-            <h2><span class="fa fa-signal" aria-hidden="true"></span> Hibernia-Sino <label><span>Travel Insurance</span></label></h2>
+            <h2><span class="fa fa-signal" aria-hidden="true"></span> Hibernia-Sino <label><span th:text="#{home.travelinsur}"></span></label></h2>
           </a>
-          <p><span>Copyright &copy; Hibernia-Sino All rights reserved.</span></p>
+          <p><span th:text="#{home.copyright}"></span></p>
         </div>
       </div>
       <div class="clearfix"> </div>
