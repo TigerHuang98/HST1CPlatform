@@ -18,11 +18,122 @@
         }
     </script>
     <!--//tags -->
+    <link th:href="@{/css/new1.css}" rel="stylesheet" type="text/css" media="all" />
+    <link th:href="@{/css/new2.css}" rel="stylesheet" type="text/css" media="all" />
+    <link th:href="@{/css/new3.css}" rel="stylesheet"/>
     <link th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" media="all" />
     <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" media="all" />
 
     <link th:href="@{/css/font-awesome.css}" rel="stylesheet"/>
     <!-- //for bootstrap working -->
+
+    <script th:inline="javascript" >
+        // <![CDATA[
+        function mytime() {
+
+            var a = new Date();
+
+            var b = a.getHours();
+
+            var c = a.getMinutes();
+
+            if(c<10){
+                c="0"+c;
+            }
+
+            document.getElementById("time").innerHTML = b +":" + c;
+            document.getElementById("time1").innerHTML = b +":" + c;
+
+        }
+
+        setInterval(function () { mytime() }, 1000);
+        // ]]>
+    </script>
+    <script>
+        window.onload = function(){
+            var arrIcon = ['@{/img/talk.jpg}','http://www.xttblog.com/wp-content/uploads/2016/03/123.png'];
+            var num = 0;     //控制头像改变
+            var iNow = -1;    //用来累加改变左右浮动
+            var icon = document.getElementById('user_face_icon').getElementsByTagName('img');
+            var btn = document.getElementById('btn');
+            var text = document.getElementById('text');
+            var content1 = document.getElementById("container1").getElementsByTagName('ul')[0];
+            var img = content1.getElementsByTagName('img');
+            var span = content1.getElementsByTagName('span');
+
+            // icon[0].onclick = function(){
+            //     if(num==0){
+            //         this.src = arrIcon[1];
+            //         num = 1;
+            //     }else if(num==1){
+            //         this.src = arrIcon[0];
+            //         num = 0;
+            //     }
+            // };
+            btn.onclick = function(){
+                if(text.value ==''){
+                    alert('The message cannot be empty!');
+                }
+                // else {
+                //         content1.innerHTML += '<li><img th:src="'+arrIcon[num]+'"/><span>'+text.value+'</span></li>';
+                //         iNow++;
+                //         if(num==0){
+                //             img[iNow].className += 'imgright';
+                //             span[iNow].className += 'spanright';
+                //         }else {
+                //             img[iNow].className += 'imgleft';
+                //             span[iNow].className += 'spanleft';
+                //         }
+                //         text.value = '';
+                //         // 内容过多时,将滚动条放置到最底端
+                ul.scrollTop=ul.scrollHeight;
+                //     }
+            };
+            var arrIcon1 = ['talk.jpg','http://www.xttblog.com/wp-content/uploads/2016/03/123.png'];
+            var num1 = 0;     //控制头像改变
+            var iNow1 = -1;    //用来累加改变左右浮动
+            var icon1 = document.getElementById('user_face_icon1').getElementsByTagName('img');
+            var btn1 = document.getElementById('btn1');
+            var text1 = document.getElementById('text2');
+            var content2 = document.getElementById("container2").getElementsByTagName('ul')[0];
+            var img1 = content2.getElementsByTagName('img');
+            var span1 = content2.getElementsByTagName('span');
+
+            // icon1[0].onclick = function(){
+            //     if(num1==0){
+            //         this.src = arrIcon1[1];
+            //         num1 = 1;
+            //     }else if(num1==1){
+            //         this.src = arrIcon1[0];
+            //         num1 = 0;
+            //     }
+            // }
+            btn1.onclick = function(){
+                if(text1.value ==''){
+                    alert('The message cannot be empty!');
+                }
+                //     else {
+                //     content2.innerHTML += '<li><img th:src="'+arrIcon1[num1]+'"/><span>'+text1.value+'</span></li>';
+                //     iNow1++;
+                //     if(num1==0){
+                //         img1[iNow1].className += 'imgright1';
+                //         span1[iNow1].className += 'spanright1';
+                //     }else {
+                //         img1[iNow1].className += 'imgleft1';
+                //         span1[iNow1].className += 'spanleft1';
+                //     }
+                //     text1.value = '';
+                //     // 内容过多时,将滚动条放置到最底端
+                //     ul2.scrollTop=ul2.scrollHeight;
+                // }
+            }
+
+        }
+    </script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/talk2.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/talk3.css}"/>
+
+
     <link href="http://fonts.googleapis.com/css?family=Work+Sans:200,300,400,500,600,700" rel="stylesheet"/>
     <link href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css'/>
 </head>
@@ -125,19 +236,19 @@
         </div>
 
         <label class="col-sm-3 control-label" ></label>
-        <div class="form-group">
-            <span class="input-group-addon center-block" style="width: 500px;margin-bottom: -25px" ><span>Consultation record</span></span>
+<!--        <div class="form-group">-->
+<!--            <span class="input-group-addon center-block" style="width: 500px;margin-bottom: -25px" ><span>Consultation record</span></span>-->
 
-            <label class="control-label"></label>
-            <div class="form-group">
-                <p class="form-control center-block pre-scrollable" style="width: 500px;height: 150px;margin-bottom: -15px">aaaaabhtbygbtyyyyyyyyy<br/>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy<br/>yyyyyyyyyyyyyyyyyyyyyyyyyyy<br/>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyy<br/>yaaaafffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-            </div>
+<!--            <label class="control-label"></label>-->
+<!--            <div class="form-group">-->
+<!--                <p class="form-control center-block pre-scrollable" style="width: 500px;height: 150px;margin-bottom: -15px">aaaaabhtbygbtyyyyyyyyy<br/>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy<br/>yyyyyyyyyyyyyyyyyyyyyyyyyyy<br/>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyy<br/>yaaaafffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>-->
+<!--            </div>-->
 
-        </div>
-        <div class="text-center">
-            <div class="center-block col-sm-12" style="list-style-type: none" > <input   type="text" placeholder="Please enter the message" style="width: 400px"/>
-                <button type="submit" class="btn btn-default btn-success" style=" width: 100px"><span>Send</span></button></div>
-        </div>
+<!--        </div>-->
+<!--        <div class="text-center">-->
+<!--            <div class="center-block col-sm-12" style="list-style-type: none" > <input   type="text" placeholder="Please enter the message" style="width: 400px"/>-->
+<!--                <button type="submit" class="btn btn-default btn-success" style=" width: 100px"><span>Send</span></button></div>-->
+<!--        </div>-->
 
 
 
@@ -145,6 +256,41 @@
 
     </fieldset>
 </div>
+<div id="container1" style="margin: 0 auto">
+    <div class="header1">
+        <span style="float: left;">chat box</span>
+        <p id="time" style="float: left;margin-left: 450px"></p>
+        <form th:if="${message_linked_ordernumber !=null}" method="POST" th:action="@{fetch_message}">
+            <input type="hidden" th:id="role" th:name="role" th:value="${T(com.anonymous.HST1C.Role).CUSTOMER}"/>
+            <input type="hidden" th:id="ordernumber" th:name="ordernumber" th:value="${message_linked_ordernumber}" />
+            <button type="submit" class="btn btn-success link-button" style="margin-left: 960px">refresh</button>
+        </form>
+    </div>
+    <ul class="content1" id="ul">
+        <li th:each="message : ${messages}">
+            <img th:class="${message.issend}?imgright:imgleft" th:src="'p'"/>
+            <span th:class="${message.issend}?spanright:spanleft" th:text="${message.text} "></span>
+        </li>
+    </ul>
+    <div class="footer1">
+        <div id="user_face_icon">
+            <img th:src="@{/images/talk.jpg}" alt=""/>
+        </div>
+
+        <form method="POST" th:action="@{fetch_message}">
+            <input type="hidden" th:id="role" th:name="role" th:value="${T(com.anonymous.HST1C.Role).CUSTOMER}"/>
+            <input type="hidden" th:id="ordernumber" th:name="ordernumber" th:value="${order.ordernumber}" />
+            <input type="text" placeholder="say something.." th:id="text" th:name="text"/>
+            <span>
+                <button id="btn" type="submit" class="link-button">send</button>
+            </span>
+        </form>
+    </div>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
 <div class="col-sm-12 center-block ">
     <!-- Back Button -->
     <button class="btn btn-inverse" style="margin-left: 45px;margin-top: -70px;margin-bottom: 125px;width: 10%;height: 40px;font-size: 15px;"><a th:href="@{claim_list}"><span>&lt;&lt; Back</span></a></button>
