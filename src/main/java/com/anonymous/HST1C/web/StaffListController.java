@@ -22,14 +22,14 @@ import java.util.List;
 @RequestMapping("/staff_list")
 
 public class StaffListController {
-    private LoginRepository LoginRepository;
+    private LoginRepository loginRepository;
     private ItemRepository itemRepository;
     private OrderRepository orderRepository;
     private MessageRepository messageRepository;
 
     @Autowired
-    public StaffListController(LoginRepository LoginRepository,ItemRepository itemRepository, OrderRepository orderRepository, MessageRepository messageRepository) {
-        this.LoginRepository = LoginRepository;
+    public StaffListController(LoginRepository loginRepository,ItemRepository itemRepository, OrderRepository orderRepository, MessageRepository messageRepository) {
+        this.loginRepository = loginRepository;
         this.itemRepository = itemRepository;
         this.orderRepository = orderRepository;
         this.messageRepository = messageRepository;
@@ -39,7 +39,7 @@ public class StaffListController {
         if(session.getAttribute("username")==null){
             return "redirect:/";
         }
-        if(LoginRepository.findLoginByUsername(session.getAttribute("username").toString()).getUid()!= Role.STAFF){//incorrect user login
+        if(loginRepository.findLoginByUsername(session.getAttribute("username").toString()).getUid()!= Role.STAFF){//incorrect user login
             return "redirect:/claim_list";
         }
 //        if(model.containsAttribute("messages")&&model.containsAttribute("message-linked-ordernumber")) {
