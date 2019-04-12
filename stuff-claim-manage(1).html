@@ -80,7 +80,7 @@
                     }   
                     text.value = '';   
      // 内容过多时,将滚动条放置到最底端   
-     content1content1.scrollTop=content1.scrollHeight;     
+     ul.scrollTop=ul.scrollHeight;     
                 }   
             }   
             var arrIcon1 = ['talk.jpg','http://www.xttblog.com/wp-content/uploads/2016/03/123.png'];   
@@ -117,7 +117,7 @@
                     }   
                     text1.value = '';   
      // 内容过多时,将滚动条放置到最底端   
-     content2content2.scrollTop=content2.scrollHeight;     
+     ul2.scrollTop=ul2.scrollHeight;     
                 }   
             }   
 
@@ -242,8 +242,9 @@
 							
 <div id="container1">  
         <div class="header1">  
-            <span style="float: left;">chat box</span>  
-            <p id="time" style="float: right;"></p> 
+            <span style="float: left;">chat box</span> 
+            <p id="time" style="float: left;margin-left: 450px"></p> 
+            <button type="button" class="btn btn-success" style="margin-left: 420px">Refresh</button>    
         </div>  
         <ul class="content1" id="ul">  
   </ul>  
@@ -253,6 +254,7 @@
             </div>  
             <input id="text1" type="text" placeholder="say something.."/>
             <span id="btn">send</span>  
+            <button type="button" class="btn btn-warning" style="float: right;width: 62px; height: 48px;">Close</button>
         </div>  
     </div>  
 
@@ -294,9 +296,10 @@
 <div id="container2">  
         <div class="header2">  
             <span style="float: left;">chat box</span>  
-            <p id="time1" style="float: right;"></p> 
+             <p id="time1" style="float: left;margin-left: 450px"></p> 
+            <button type="button" class="btn btn-success" style="margin-left: 420px">Refresh</button>    
         </div>  
-        <ul class="content2">  
+        <ul class="content2" id="ul2">  
   </ul>  
         <div class="footer2">  
             <div id="user_face_icon1">  
@@ -304,6 +307,7 @@
             </div>  
             <input id="text2" type="text" placeholder="say something.."/>
             <span id="btn1">send</span>  
+            <button type="button" class="btn btn-warning" style="float: right;width: 62px; height: 48px;">Close</button>
         </div>  
     </div>  
 
