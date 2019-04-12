@@ -256,7 +256,7 @@
 
     </fieldset>
 </div>
-<div id="container1" style="margin: 0 auto">
+<div th:if="${order.status==T(com.anonymous.HST1C.Status).PROCESSING}" id="container1" style="margin: 0 auto">
     <div class="header1">
         <span style="float: left;">chat box</span>
         <p id="time" style="float: left;margin-left: 450px"></p>
