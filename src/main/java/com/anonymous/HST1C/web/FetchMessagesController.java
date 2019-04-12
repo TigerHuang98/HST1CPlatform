@@ -27,7 +27,8 @@ public class FetchMessagesController {
     public String fetchMessages(HiddenMessageForm hiddenMessageForm, RedirectAttributes model){
         List<Message> messages=new ArrayList<>();
         if(hiddenMessageForm!=null){
-            //TODO:check role?
+            //should check role if this Controller is no longer an internal Controller,
+            //i.e. it only redirect to other page.
             if(hiddenMessageForm.getText()!=null){
                 Message m=new Message(
                         -1,
@@ -50,6 +51,6 @@ public class FetchMessagesController {
                 return "redirect:/staff_list";
             }
         }
-        return "redirect:/claim_list";
+        return "redirect:/claim_detail";
     }
 }

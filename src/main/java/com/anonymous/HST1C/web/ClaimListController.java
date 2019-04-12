@@ -30,6 +30,7 @@ public class ClaimListController {
             return "redirect:/";//TODO:login page
         }
         model.addAttribute("orders",orderRepository.findOrdersByUsername(session.getAttribute("username").toString()));//TODO:add null attribute?
+        model.addAttribute("hiddenMessageForm",new HiddenMessageForm());
         return "claim_list";
     }
 }

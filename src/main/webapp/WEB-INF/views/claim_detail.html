@@ -3,12 +3,11 @@
       xmlns:th="http://www.thymeleaf.org"
 >
 <head>
-    <title>Claim list</title>
-    <!--//tags -->
+    <title>Claim Details</title>
+    <!--/tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="" />
-
     <script type="application/x-javascript">
         addEventListener("load", function () {
             setTimeout(hideURLbar, 0);
@@ -19,16 +18,15 @@
         }
     </script>
     <!--//tags -->
-    <link th:href="@{/css/new1.css}" rel="stylesheet" type="text/css" media="all" />
-    <link th:href="@{/css/new2.css}" rel="stylesheet" type="text/css" media="all" />
-    <link th:href="@{/css/new3.css}" rel="stylesheet"/>
-    <link href="http://fonts.googleapis.com/css?family=Work+Sans:200,300,400,500,600,700" rel="stylesheet"/>
-    <link href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css'/>
     <link th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" media="all" />
     <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" media="all" />
-    <!-- //for bootstrap working -->
 
+    <link th:href="@{/css/font-awesome.css}" rel="stylesheet"/>
+    <!-- //for bootstrap working -->
+    <link href="http://fonts.googleapis.com/css?family=Work+Sans:200,300,400,500,600,700" rel="stylesheet"/>
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css'/>
 </head>
+
 <body>
 <!-- header -->
 <div class="header" id="home">
@@ -50,12 +48,11 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <nav class="link-effect-2" id="link-effect-2">
                         <ul class="nav navbar-nav">
-                            <li class=""><a th:href="@{./}" class="effect-3"><span>Home</span></a></li>
-                            <li class="effect-3 active"><a th:href="@{claim_list}"><span >Claim center</span></a></li>
+                            <li class="active"><a th:href="@{./}" class="effect-3"><span>Home</span></a></li>
                             <li>
                                 <!--图标按钮-->
                                 <!--<button type="button" class="btn btn-default btn-lg" style="font-size: 13px" >-->
-                                <!--<span class="glyphicon glyphicon-log-osut" aria-hidden="true"></span> Log out-->
+                                <!--<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Log out-->
                                 <!--</button>-->
                                 <a th:href="@{logout}">
                                     <button type="button" class="btn btn-default btn-lg" style="font-size: 13px" >
@@ -89,74 +86,69 @@
         </nav>
     </div>
 </div>
-<!-- banner -->
-<div class="inner_page_agile">
-    <h3>Claim list</h3>
-    <p>View your claims</p>
-
+<div class="inner_page_agile" style="margin-bottom: 40px">
+    <h3><span>Claim details</span></h3>
+    <p><span>View the details of the claim</span></p>
 </div>
+<div class="form-horizontal center-block" style="background-color: #eeeded;width: 55%;padding-top: 30px;padding-bottom: 50px;border-radius: 20px;margin-bottom: 30px">
 
-<!--//banner -->
-<!-- banner -->
-<div class="services-breadcrumb_w3layouts">
-    <div class="inner_breadcrumb">
-        <ul class="short_w3ls">
-            <span><li><a th:href="@{./}"><span>Home</span></a><span>|</span></li></span>
-            <span><li><span>Claim</span></li></span>
-        </ul>
-    </div>
-</div>
+    <fieldset>
+        <label class="col-sm-6 control-label" style="padding-top: 0px" ><span>Order number :</span></label>
+        <div class="col-sm-6 input-group">
+            <span type="text" style="width: 300px" th:text="${order.ordernumber}"></span>
+            <!--<p class="help-block">It will be used when log in</p>-->
+        </div>
 
-<div class="col-md-12 according_inner_grids">
-    <!--<h3 class="agile_heading two"><span>Order List:</span></h3>-->
-    <a th:href="@{profile}">
-        <input type="button" value="Profile" class="btn" style="margin-left: 1000px"/>
-    </a>
+        <label class="col-sm-6 control-label" style="padding-top: 0px" ><span>Items photos :</span></label>
+        <div class="col-sm-6 input-group">
+            <img th:src="${itemPicture} == null ? _ : @{'data:image/png;base64,'+${itemPicture}}" style="width: 100px;height: 100px" alt="Item photo" class="img-rounded"/>
+        </div>
 
-    <br/>
-    <br/>
+        <label class="col-sm-6 control-label" style="padding-top: 0px"><span>Item name :</span></label>
+        <div class="col-sm-6 input-group">
+            <span type="text" style="width: 300px" th:text="${item.itemname}"></span>
+        </div>
 
-    <a th:href="@{claim_form}">
-        <input type="button" name="add_policy" id="add_policy" value="Add" class="btn btn-warning" style="margin-left: 1000px"/>
-    </a>
+        <label class="col-sm-6 control-label" style="padding-top: 0px"><span>Item price :</span></label>
+        <div class="col-sm-6 input-group">
+            <span type="text" style="width: 300px" th:text="${item.price}"></span>
+        </div>
 
-    <br/>
-    <br/>
+        <label class="col-sm-6 control-label" style="padding-top: 0px" ><span>Item description :</span></label>
+        <div class="col-sm-6 input-group">
+            <span type="text" style="width: 300px" th:text="${item.description}"></span>
+        </div>
 
-    <div class="form-horizontal center-block" style="background-color: #DCDCDC;width: 80%;padding-top: 30px;padding-bottom: 50px;border-radius: 10px;margin-bottom: 30px">
-        <table id="item_table" style="border-style:none;color:black;padding-left:50px;width: 90%" class="table table-striped center-block">
-            <tr>
-                <th><span>Order Number</span></th>
-                <th><span>Order Date</span></th>
-                <th><span>Item ID</span></th>
-                <th><span>Item Status</span></th>
-                <th><span>Lost Date</span></th>
-                <th style="color: blue;" >         </th>
-            </tr>
-            <div th:each="order:${orders}">
-                <tr>
-                    <td><span th:text="${order.ordernumber}"></span></td>
-                    <td><span th:text="${order.orderdate}"></span></td>
-                    <td><span th:text="${order.itemid}"></span></td>
-                    <td><span th:text="${order.status}"></span></td>
-                    <td><span th:text="${order.lostdate}"></span></td>
-                    <td>
-                        <form method="POST" th:action="@{fetch_message}">
-                            <input type="hidden" th:id="role" th:name="role" th:value="${T(com.anonymous.HST1C.Role).CUSTOMER}"/>
-                            <input type="hidden" th:id="ordernumber" th:name="ordernumber" th:value="${order.ordernumber}" />
-                            <button type="submit" class="btn btn-success link-button" style="width: 130px;height: 28px;">View the details</button>
-                        </form>
-                    </td>
-<!--                    <td><input type="button" name="View" class="btn btn-success" value="View the details" id="view" style="width: 130px;height: 28px;"/></td>-->
-                </tr>
+        <label class="col-sm-6 control-label" style="padding-top: 0px"><span>Claim state :</span></label>
+        <div class="col-sm-6 input-group">
+            <span type="text" style="width: 300px" th:text="${order.status}"></span>
+        </div>
+
+        <label class="col-sm-3 control-label" ></label>
+        <div class="form-group">
+            <span class="input-group-addon center-block" style="width: 500px;margin-bottom: -25px" ><span>Consultation record</span></span>
+
+            <label class="control-label"></label>
+            <div class="form-group">
+                <p class="form-control center-block pre-scrollable" style="width: 500px;height: 150px;margin-bottom: -15px">aaaaabhtbygbtyyyyyyyyy<br/>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy<br/>yyyyyyyyyyyyyyyyyyyyyyyyyyy<br/>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyy<br/>yaaaafffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
             </div>
-        </table>
-    </div>
-    <input type="button" name="return" value="&lt;&lt; Main " class="btn btn-primary btn-lg return" style="margin-left: 565px;margin-top: 50px;width: 180px;height: 50px;" onclick="window.location.href='./'"/>
-</div>
 
-<!-- footer -->
-<!-- footer -->
+        </div>
+        <div class="text-center">
+            <div class="center-block col-sm-12" style="list-style-type: none" > <input   type="text" placeholder="Please enter the message" style="width: 400px"/>
+                <button type="submit" class="btn btn-default btn-success" style=" width: 100px"><span>Send</span></button></div>
+        </div>
+
+
+
+
+
+    </fieldset>
+</div>
+<div class="col-sm-12 center-block ">
+    <!-- Back Button -->
+    <button class="btn btn-inverse" style="margin-left: 45px;margin-top: -70px;margin-bottom: 125px;width: 10%;height: 40px;font-size: 15px;"><a th:href="@{claim_list}"><span>&lt;&lt; Back</span></a></button>
+</div>
 <!-- footer -->
 <div class="footer_top_agileits" style="padding-top: 30px">
     <div class="container">
@@ -202,6 +194,6 @@
 <script type="text/javascript" th:src="@{/js/jquery-2.1.4.min.js}"></script>
 
 <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
-
 </body>
+
 </html>
