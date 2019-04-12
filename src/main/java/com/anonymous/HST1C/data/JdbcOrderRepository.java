@@ -84,7 +84,8 @@ public class JdbcOrderRepository implements OrderRepository {
         paramMap.put("lostdate",order.getLostdate());
         SqlParameterSource paramSource=new MapSqlParameterSource(paramMap);
         namedParameterJdbcOperations.update(ADD_ORDER,paramSource,keyHolder);
-        return keyHolder.getKey().intValue();
+//        return keyHolder.getKey().intValue();
+        return Integer.parseInt(keyHolder.getKeys().get("ordernumber").toString());
     }
 
     @Override
