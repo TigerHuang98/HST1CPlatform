@@ -86,7 +86,7 @@
             //         }
             //         text.value = '';
             //         // 内容过多时,将滚动条放置到最底端
-                    content1.scrollTop=content1.scrollHeight;
+                    ul.scrollTop=ul.scrollHeight;
             //     }
             };
             var arrIcon1 = ['talk.jpg','http://www.xttblog.com/wp-content/uploads/2016/03/123.png'];
@@ -124,7 +124,7 @@
                 //     }
                 //     text1.value = '';
                 //     // 内容过多时,将滚动条放置到最底端
-                    content2content2.scrollTop=content2.scrollHeight;
+                //     ul2.scrollTop=ul2.scrollHeight;
                 // }
             }
 
@@ -135,11 +135,6 @@
 
 </head>
 <body>
-<form th:if="${message_linked_ordernumber !=null}" method="POST" th:action="@{fetch_message}">
-    <input type="hidden" th:id="role" th:name="role" th:value="${T(com.anonymous.HST1C.Role).STAFF}"/>
-    <input type="hidden" th:id="ordernumber" th:name="ordernumber" th:value="${message_linked_ordernumber}" />
-    <button type="submit" class="link-button">refresh</button>
-</form>
 <!-- header -->
 <div class="header" id="home">
     <div class="content white agile-info">
@@ -258,7 +253,12 @@
                                     <div id="container1">
                                         <div class="header1">
                                             <span style="float: left;">chat box</span>
-                                            <p id="time" style="float: right;"></p>
+                                            <p id="time" style="float: left;margin-left: 450px"></p>
+                                            <form th:if="${message_linked_ordernumber !=null}" method="POST" th:action="@{fetch_message}">
+                                                <input type="hidden" th:id="role" th:name="role" th:value="${T(com.anonymous.HST1C.Role).STAFF}"/>
+                                                <input type="hidden" th:id="ordernumber" th:name="ordernumber" th:value="${message_linked_ordernumber}" />
+                                                <button type="submit" class="btn btn-success link-button" style="margin-left: 960px">refresh</button>
+                                            </form>
                                         </div>
                                         <ul class="content1" id="ul">
                                             <li th:each="message : ${messages}">
@@ -270,6 +270,9 @@
                                             <div id="user_face_icon">
                                                 <img th:src="@{/images/talk.jpg}" alt=""/>
                                             </div>
+                                            <a th:href="@{staff_list}">
+                                                <button type="button" class="btn btn-warning" style="float: right;width: 62px; height: 48px;">close</button>
+                                            </a>
 
 
                                             <form method="POST" th:action="@{fetch_message}">
@@ -279,9 +282,6 @@
                                                 <span>
                                                 <button id="btn" type="submit" class="link-button">send</button>
                                                 </span>
-<!--                                                <span>-->
-<!--                                                    <a th:href="@{staff_list}"><span th:text="close"></span></a>-->
-<!--                                                </span>-->
                                             </form>
                                         </div>
                                     </div>
@@ -334,7 +334,7 @@
 <!--                                            <span style="float: left;">chat box</span>-->
 <!--                                            <p id="time" style="float: right;"></p>-->
 <!--                                        </div>-->
-<!--                                        <ul class="content2">-->
+<!--                                        <ul class="content2" id="ul2">-->
 <!--                                            <li th:each="message : ${messages}">-->
 <!--                                                <img th:class="${message.issend}?imgright1:imgleft1" th:src="'p'"/>-->
 <!--                                                <span th:class="${message.issend}?spanright1:spanleft1" th:text="${message.text} "></span>-->
