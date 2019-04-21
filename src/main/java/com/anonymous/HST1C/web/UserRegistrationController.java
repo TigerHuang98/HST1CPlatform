@@ -31,6 +31,10 @@ public class UserRegistrationController {
     }
     @RequestMapping(method = RequestMethod.POST)
     public String processRegistration(UserRegistrationForm userRegistrationForm, RedirectAttributes model, HttpSession session) throws IOException, SQLException {
+        if(userinfoRepository.findUserinfo(userRegistrationForm.getUsername())!=null){
+            model.addFlashAttribute("duplicate_user","");
+            return "redirect:/register";
+        }
         BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
         String password=userRegistrationForm.getPassword();
         Userinfo userinfo=new Userinfo(

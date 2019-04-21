@@ -80,6 +80,9 @@
     <h3>Sign in</h3>
     <p style="margin-top:20px;margin-bottom: 40px">Please fill in the following information:</p>
     <div class="center-block" style="background-color:rgba(255, 255, 255, 0.5);width: 450px; border-radius: 10px ;text-align: center" >
+        <div th:if="${duplicate_user!=null}" style="background-color: #ffcccc; border: 2px solid red">
+            Sorry, this user name has been occupied
+        </div>
         <form class="form-horizontal" style="padding: 50px" method="POST" th:object="${userRegistrationForm}" enctype="multipart/form-data">
             <!-- Username-->
             <label class="col-sm-5 control-label" ><span>Username</span></label>
