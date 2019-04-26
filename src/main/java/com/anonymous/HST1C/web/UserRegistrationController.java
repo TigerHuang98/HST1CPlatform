@@ -10,12 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 import javax.sql.rowset.serial.SerialBlob;
+import javax.validation.Valid;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -30,7 +31,14 @@ public class UserRegistrationController {
         this.loginRepository=loginRepository;
     }
     @RequestMapping(method = RequestMethod.POST)
-    public String processRegistration(UserRegistrationForm userRegistrationForm, Model model, HttpSession session) throws IOException, SQLException {
+    public String processRegistration(@Valid UserRegistrationForm userRegistrationForm, Errors errors, Model model, HttpSession session) throws IOException, SQLException {
+        if(userRegistrationForm.getBirthday()==null){
+            model.addAttribute("birthday_not_set","");
+            return "register";
+        }
+        if(errors.hasErrors()){
+            return "register";
+        }
         if(userinfoRepository.findUserinfo(userRegistrationForm.getUsername())!=null){
             model.addAttribute("duplicate_user","");
             return "register";

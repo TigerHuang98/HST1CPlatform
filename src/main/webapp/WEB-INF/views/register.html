@@ -80,10 +80,19 @@
     <h3>Sign in</h3>
     <p style="margin-top:20px;margin-bottom: 40px">Please fill in the following information:</p>
     <div class="center-block" style="background-color:rgba(255, 255, 255, 0.5);width: 450px; border-radius: 10px ;text-align: center" >
-        <div th:if="${duplicate_user!=null}" style="background-color: #ffcccc; border: 2px solid red">
-            Sorry, this user name has been occupied
-        </div>
         <form class="form-horizontal" style="padding: 50px" method="POST" th:object="${userRegistrationForm}" enctype="multipart/form-data">
+            <div th:if="${birthday_not_set!=null}" style="background-color: #ffcccc; border: 2px solid red">
+                Please enter your birthday
+            </div>
+            <div th:if="${duplicate_user!=null}" style="background-color: #ffcccc; border: 2px solid red">
+                Sorry, this user name has been occupied
+            </div>
+            <div class="errors" style="background-color: #ffcccc; border: 2px solid red" th:if="${#fields.hasErrors('*')} and ${birthday_not_set==null}">
+                <ul style="list-style-type:none;">
+                    <li th:each="err : ${#fields.errors('*')}"
+                        th:text="${err}">Input is incorrect</li>
+                </ul>
+            </div>
             <!-- Username-->
             <label class="col-sm-5 control-label" ><span>Username</span></label>
             <div class="col-sm-5 input-group">
