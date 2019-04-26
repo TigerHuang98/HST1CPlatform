@@ -30,10 +30,10 @@ public class UserRegistrationController {
         this.loginRepository=loginRepository;
     }
     @RequestMapping(method = RequestMethod.POST)
-    public String processRegistration(UserRegistrationForm userRegistrationForm, RedirectAttributes model, HttpSession session) throws IOException, SQLException {
+    public String processRegistration(UserRegistrationForm userRegistrationForm, Model model, HttpSession session) throws IOException, SQLException {
         if(userinfoRepository.findUserinfo(userRegistrationForm.getUsername())!=null){
-            model.addFlashAttribute("duplicate_user","");
-            return "redirect:/register";
+            model.addAttribute("duplicate_user","");
+            return "register";
         }
         BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
         String password=userRegistrationForm.getPassword();
