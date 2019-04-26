@@ -17,6 +17,7 @@ dependencies {
     compile "org.springframework:spring-jdbc:$springVersion"
     compile "org.springframework.security:spring-security-config:$springSecurityVersion"
     compile "org.springframework.security:spring-security-web:$springSecurityVersion"
+    compile "org.hibernate:hibernate-validator:$hibernateValidatorVersion"
     compile "com.h2database:h2:$h2Version"
     compile "org.mariadb.jdbc:mariadb-java-client:$mariadbVersion"
     compile "mysql:mysql-connector-java:$mysqlVersion"
