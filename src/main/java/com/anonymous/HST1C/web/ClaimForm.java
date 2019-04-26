@@ -2,14 +2,26 @@ package com.anonymous.HST1C.web;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.sql.Date;
 
 public class ClaimForm {
+
+    //IMPORTANT: Don't forget to change the Validation error messages if there is any change on the constraints
+
     private MultipartFile picture;
+    @DecimalMin("0")
     private BigDecimal price;
+    @NotNull
+    @Size(min=1)
     private String itemname;
     private String description;
+    @NotNull
+    @Past
     private Date lostdate;
 
     public void setPicture(MultipartFile picture) {

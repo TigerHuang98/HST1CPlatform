@@ -8,12 +8,14 @@ import com.anonymous.HST1C.data.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 import javax.sql.rowset.serial.SerialBlob;
+import javax.validation.Valid;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -29,7 +31,19 @@ public class ClaimFormController {
         this.orderRepository = orderRepository;
     }
     @RequestMapping(method = RequestMethod.POST)
-    public String processClaim(ClaimForm claimForm, HttpSession session) throws IOException, SQLException {
+    public String processClaim(@Valid ClaimForm claimForm, Errors errors, Model model, HttpSession session) throws IOException, SQLException {
+        if(claimForm.getLostdate()==null||claimForm.getPrice()==null){
+            if(claimForm.getLostdate()==null){
+                model.addAttribute("lostdate_not_set","");
+            }
+            if(claimForm.getPrice()==null){
+                model.addAttribute("price_not_set","");
+            }
+            return "claim_form";
+        }
+        if(errors.hasErrors()){
+            return "claim_form";
+        }
         Object usernameObject=session.getAttribute("username");
         String username=null;
         if(usernameObject!=null){

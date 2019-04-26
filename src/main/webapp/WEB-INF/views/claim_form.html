@@ -95,6 +95,19 @@
 <div class="form-horizontal center-block" style="background-color: #eeeded;width: 55%;padding-top: 30px;padding-bottom: 100px;border-radius: 20px;margin-bottom: 30px">
 
     <form method="POST" th:object="${claimForm}" enctype="multipart/form-data">
+        <div th:if="${lostdate_not_set!=null}" style="background-color: #ffcccc; border: 2px solid red">
+            Please enter lost date
+        </div>
+        <div th:if="${price_not_set!=null}" style="background-color: #ffcccc; border: 2px solid red">
+            Please enter price
+        </div>
+        <div class="errors" style="background-color: #ffcccc; border: 2px solid red" th:if="${#fields.hasErrors('*')} and ${lostdate_not_set==null}">
+            <ul style="list-style-type:none;">
+                <li th:each="err : ${#fields.errors('*')}"
+                    th:text="${err}">Input is incorrect</li>
+            </ul>
+        </div>
+
 <!--        <label class="col-sm-6 control-label" style="padding-top: 0px" ><span>Order number:</span></label>-->
 <!--        <div class="col-sm-6 input-group">-->
 <!--            <span type="text" style="width: 300px">123445677</span>-->
@@ -140,7 +153,7 @@
 
 <div class="col-sm-12 center-block ">
     <!-- Back Button -->
-    <button class="btn btn-inverse" style="margin-left: 45px;margin-top: -110px;margin-bottom: 125px;width: 10%;height: 40px;font-size: 15px;"><a th:href="@{claim_list}"><span>&lt;&lt; Back</span></a></button>
+    <a th:href="@{claim_list}"><button class="btn btn-inverse" style="margin-left: 45px;margin-top: -110px;margin-bottom: 125px;width: 10%;height: 40px;font-size: 15px;"><span>&lt;&lt; Back</span></button></a>
 </div>
 
 
