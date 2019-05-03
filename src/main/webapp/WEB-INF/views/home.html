@@ -17,6 +17,15 @@
       window.scrollTo(0, 1);
     }
   </script>
+  <script type="text/javascript">
+    function showImg() {
+      document.getElementById("wxImg").style.display = 'block';
+    }
+
+    function hideImg() {
+      document.getElementById("wxImg").style.display = 'none';
+    }
+  </script>
   <!--//tags -->
   <link th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" media="all" />
   <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" media="all" />
@@ -42,7 +51,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" th:href="@{./}">
-            <h1><span class="fa fa-signal" aria-hidden="true"></span> Hibernia-Sino <label><span> Travel Insurance</span> </label></h1>
+            <h1> Hibernia-Sino <label><span> Travel Insurance</span> </label></h1>
           </a>
         </div>
         <!--/.navbar-header-->
@@ -76,12 +85,16 @@
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                     <li><a th:href="@{'./'+#{theOtherLanguage}}"><span th:text="#{changeLanguage}"></span></a></li>
                   </ul>
+                  <li><a href="javascript:void(0)" onMouseOut="hideImg()" onmouseover="showImg()">
+                    <span>Download our app</span></a>
+                  </li>
+                  <div id="wxImg" style="display:none;width:50px;height:50px;back-ground:#f00;position:relative;left:265px">
+                    <img src="images/QR.png" style="width:100px;height:100px;"/>
+                  </div>
                 </div>
               </li>
             </ul>
           </nav>
-
-
         </div>
         <!--/.navbar-collapse-->
         <!--/.navbar-->
