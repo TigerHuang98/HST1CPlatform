@@ -42,7 +42,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" th:href="@{./}">
-                        <h1><span class="fa fa-signal" aria-hidden="true"></span> Hibernia-Sino <label><span> Travel Insurance</span> </label></h1>
+                        <h1><span class="fa fa-signal" aria-hidden="true"></span> Hibernia-Sino <label><span  th:text="{home.travelinsur}"></span> </label></h1>
                     </a>
                 </div>
                 <!--/.navbar-header-->
@@ -90,8 +90,8 @@
     </div>
 </div>
 <div class="inner_page_agile" style="margin-bottom: 40px">
-    <h3><span>Personal Profile</span></h3>
-    <p><span>View your personal profile</span></p>
+    <h3><span th:text="#{profile.title}"></span></h3>
+    <p><span th:text="#{profile.view}"></span></p>
 </div>
 <div class="form-horizontal center-block" style="background-color: #eeeded;width: 55%;padding-top: 30px;padding-bottom: 50px;border-radius: 20px;margin-bottom: 30px">
 
@@ -147,15 +147,14 @@
 <div class="footer_top_agileits" style="padding-top: 30px">
     <div class="container">
         <div class="col-md-6 footer_grid">
-            <h3><span>About Us</span></h3>
-            <p><span>Nam libero tempore cum vulputate id est id, pretium semper enim. Morbi viverra congue nisi vel pulvinar posuere sapien
-                eros.</span>
+            <h3><span th:text="{home.about}"></span></h3>
+            <p><span th:text="{home.aboutus}"></span>
             </p>
         </div>
         <div class="col-md-6 footer_grid">
-            <h3><span>Contact Info</span></h3>
+            <h3><span th:text="{home.contact}"></span></h3>
             <ul class="address">
-                <li><i class="fa fa-map-marker" aria-hidden="true"></i><span style="margin:0px;display:inline;">Beijing-Dublin International College,Beijing,China.</span></li>
+                <li><i class="fa fa-map-marker" aria-hidden="true"></i><span style="margin:0px;display:inline;"  th:text="{home.contactaddress}"></span></li>
                 <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">Group5_Anonymous@gmail.com</a></li>
                 <li><i class="fa fa-phone" aria-hidden="true"></i>+8613888888888</li>
             </ul>
@@ -170,9 +169,9 @@
             <div class="col-md-9 footer_bottom_grid">
                 <div class="footer_bottom1">
                     <a th:href="@{./}">
-                        <h2><span class="fa fa-signal" aria-hidden="true"></span> Hibernia-Sino <label><span>Travel Insurance</span></label></h2>
+                        <h2><span class="fa fa-signal" aria-hidden="true"></span> Hibernia-Sino <label><span  th:text="{home.travelinsur}"></span></label></h2>
                     </a>
-                    <p><span>Copyright &copy; Hibernia-Sino All rights reserved.</span></p>
+                    <p><span  th:text="{home.copyright}"></span></p>
                 </div>
             </div>
             <div class="clearfix"> </div>
