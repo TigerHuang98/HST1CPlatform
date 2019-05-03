@@ -26,7 +26,7 @@ public class JdbcMessageRepository implements MessageRepository {
     private static final String _BY_ORDERNUMBER="WHERE `ordernumber`=:ordernumber";
 
 
-    private static final class MessageRepository implements RowMapper<Message>{
+    private static final class MessageRowMapper implements RowMapper<Message>{
 
         @Override
         public Message mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -79,7 +79,7 @@ public class JdbcMessageRepository implements MessageRepository {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("messageid",messageid);
         try{
-            return namedParameterJdbcOperations.queryForObject(FIND_MESSAGE + _BY_ID, paramMap, new JdbcMessageRepository.MessageRepository());
+            return namedParameterJdbcOperations.queryForObject(FIND_MESSAGE + _BY_ID, paramMap, new MessageRowMapper());
         }catch(EmptyResultDataAccessException e){//Message detail not find
             return null;
         }
@@ -90,7 +90,7 @@ public class JdbcMessageRepository implements MessageRepository {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("ordernumber",ordernumber);
         try{
-            return namedParameterJdbcOperations.query(FIND_MESSAGE + _BY_ORDERNUMBER, paramMap, new JdbcMessageRepository.MessageRepository());
+            return namedParameterJdbcOperations.query(FIND_MESSAGE + _BY_ORDERNUMBER, paramMap, new MessageRowMapper());
         }catch(EmptyResultDataAccessException e){//Message detail not find
             return null;
         }
