@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <title>staff</title>
+    <!--//tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+
+    <script type="application/x-javascript">
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!--//tags -->
+    <link th:href="@{new1.css}" rel="stylesheet" type="text/css" media="all" />
+    <link th:href="@{new2.css}" rel="stylesheet" type="text/css" media="all" />
+    <link th:href="@{new3.css}" rel="stylesheet"/>
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" media="all" />
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" media="all" />
+    <!-- //for bootstrap working -->
+
+    <script th:inline="javascript" >
+        // <![CDATA[
+        function mytime() {
+
+            var a = new Date();
+
+            var b = a.getHours();
+
+            var c = a.getMinutes();
+
+            if(c<10){
+                c="0"+c;
+            }
+
+            document.getElementById("time").innerHTML = b +":" + c;
+            document.getElementById("time1").innerHTML = b +":" + c;
+
+        }
+
+        setInterval(function () { mytime() }, 1000);
+        // ]]>
+    </script>
+
+    <script>
+        window.onload = function(){
+            var arrIcon = ['@{/img/talk.jpg}','http://www.xttblog.com/wp-content/uploads/2016/03/123.png'];
+            var num = 0;     //控制头像改变
+            var iNow = -1;    //用来累加改变左右浮动
+            var icon = document.getElementById('user_face_icon').getElementsByTagName('img');
+            var btn = document.getElementById('btn');
+            var text = document.getElementById('text');
+            var content1 = document.getElementById("container1").getElementsByTagName('ul')[0];
+            var img = content1.getElementsByTagName('img');
+            var span = content1.getElementsByTagName('span');
+
+            // icon[0].onclick = function(){
+            //     if(num==0){
+            //         this.src = arrIcon[1];
+            //         num = 1;
+            //     }else if(num==1){
+            //         this.src = arrIcon[0];
+            //         num = 0;
+            //     }
+            // };
+            btn.onclick = function(){
+                if(text.value ==''){
+                    alert('The message cannot be empty!');
+                }
+                // else {
+            //         content1.innerHTML += '<li><img th:src="'+arrIcon[num]+'"/><span>'+text.value+'</span></li>';
+            //         iNow++;
+            //         if(num==0){
+            //             img[iNow].className += 'imgright';
+            //             span[iNow].className += 'spanright';
+            //         }else {
+            //             img[iNow].className += 'imgleft';
+            //             span[iNow].className += 'spanleft';
+            //         }
+            //         text.value = '';
+            //         // 内容过多时,将滚动条放置到最底端
+                    ul.scrollTop=ul.scrollHeight;
+            //     }
+            };
+            var arrIcon1 = ['talk.jpg','http://www.xttblog.com/wp-content/uploads/2016/03/123.png'];
+            var num1 = 0;     //控制头像改变
+            var iNow1 = -1;    //用来累加改变左右浮动
+            var icon1 = document.getElementById('user_face_icon1').getElementsByTagName('img');
+            var btn1 = document.getElementById('btn1');
+            var text1 = document.getElementById('text2');
+            var content2 = document.getElementById("container2").getElementsByTagName('ul')[0];
+            var img1 = content2.getElementsByTagName('img');
+            var span1 = content2.getElementsByTagName('span');
+
+            // icon1[0].onclick = function(){
+            //     if(num1==0){
+            //         this.src = arrIcon1[1];
+            //         num1 = 1;
+            //     }else if(num1==1){
+            //         this.src = arrIcon1[0];
+            //         num1 = 0;
+            //     }
+            // }
+            btn1.onclick = function(){
+                if(text1.value ==''){
+                    alert('The message cannot be empty!');
+                }
+                //     else {
+                //     content2.innerHTML += '<li><img th:src="'+arrIcon1[num1]+'"/><span>'+text1.value+'</span></li>';
+                //     iNow1++;
+                //     if(num1==0){
+                //         img1[iNow1].className += 'imgright1';
+                //         span1[iNow1].className += 'spanright1';
+                //     }else {
+                //         img1[iNow1].className += 'imgleft1';
+                //         span1[iNow1].className += 'spanleft1';
+                //     }
+                //     text1.value = '';
+                //     // 内容过多时,将滚动条放置到最底端
+                //     ul2.scrollTop=ul2.scrollHeight;
+                // }
+            }
+
+        }
+    </script>
+    <link rel="stylesheet" type="text/css" th:href="@{talk2.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{talk3.css}"/>
+
+</head>
+<body>
+<!-- header -->
+<div class="header" id="home">
+    <div class="content white agile-info">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" th:href="@{./}">
+                        <h1><span class="fa fa-signal" aria-hidden="true"></span> Hibernia-Sino <label> Travel Insurance </label></h1>
+                    </a>
+                </div>
+                <!--/.navbar-header-->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <nav class="link-effect-2" id="link-effect-2">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a th:href="@{./}" class="effect-3"><span>Home</span></a></li>
+                            <li class="effect-3"><a th:href="@{staff_list}"><span >Claim process center</span></a></li>
+                            <li>
+                                <!--图标按钮-->
+                                <!--<button type="button" class="btn btn-default btn-lg" style="font-size: 13px" >-->
+                                <!--<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Log out-->
+                                <!--</button>-->
+                                <a th:href="@{logout}">
+                                    <button type="button" class="btn btn-default btn-lg" style="font-size: 13px" >
+                                        <span>Log out</span>
+                                    </button>
+                                </a>
+                            </li>
+                            <li>
+                                <div class="dropdown">
+                                    <!--<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="height: 38px">-->
+                                    <!--<span class="glyphicon glyphicon-globe" aria-hidden="true"></span>-->
+                                    <!--<span class="caret"></span>-->
+                                    <!--</button>-->
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="height: 38px">
+                                        <span>language</span>
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                        <li><a th:href="@{'./'+#{theOtherLanguage}}"><span th:text="#{changeLanguage}"></span></a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <!--/.navbar-collapse-->
+                <!--/.navbar-->
+            </div>
+        </nav>
+    </div>
+</div>
+<!-- banner -->
+<div class="inner_page_agile">
+    <h3>Claim Management</h3>
+    <p>Process the claims</p>
+
+</div>
+<!--//banner -->
+<!-- banner -->
+<div class="services-breadcrumb_w3layouts">
+    <div class="inner_breadcrumb">
+        <ul class="short_w3ls">
+            <span><li><a th:href="@{./}">Home</a><span>|</span></li></span>
+            <span><li>Manage</li></span>
+        </ul>
+    </div>
+</div>
+<!-- /mid-services -->
+<div class="mid_services">
+
+    <div class="col-md-12 according_inner_grids">
+        <div class="container">
+            <!--<h3 class="agile_heading two"><span>Manage Claims :</span></h3> -->
+            <div class="panel-group about_panel" id="accordion" role="tablist" aria-multiselectable="true">
+
+                <table id="tableone" style="border-style: none;color: black;width: 1100px;text-align: center;" class="table table-striped">
+                    <tr>
+                        <th><span>Order Number</span></th>
+                        <th><span>Order Date</span></th>
+                        <th><span>Item ID</span></th>
+                        <th><span>Item Status</span></th>
+                        <th><span>Lost Date</span></th>
+
+                        <th style="color: blue;" colspan ="3">            </th>
+                    </tr>
+                    <div th:each="order : ${orders_processing}">
+                        <tr>
+                            <td><span th:text="${order.ordernumber}"></span></td>
+                            <td><span th:text="${order.orderdate}"></span></td>
+                            <td><span th:text="${order.itemid}"></span></td>
+                            <td><span th:text="${order.status}"></span></td>
+                            <td><span th:text="${order.lostdate}"></span></td>
+                            <td align="center" colspan="3">
+                                <a th:href="@{staff_handle+@{?(ordernumber=${order.ordernumber},act=approve)}}"><button type="button" class="btn btn-success" style="width: 85px"><span th:text="approve"></span></button></a>
+                                <a th:href="@{staff_handle+@{?(ordernumber=${order.ordernumber},act=deny)}}"><button type="button" class="btn btn-danger" style="width: 85px"><span th:text="deny"></span></button></a>
+                                <form th:unless="${message_linked_ordernumber == order.ordernumber}" method="POST" th:action="@{fetch_message}" style="margin:0px;display:inline;">
+                                    <input type="hidden" th:id="role" th:name="role" th:value="${T(com.anonymous.HST1C.Role).STAFF}"/>
+                                    <input type="hidden" th:id="ordernumber" th:name="ordernumber" th:value="${order.ordernumber}" />
+                                    <button type="submit" style="margin-left: 50px;background-color: #00FFCC;border: none;width: 100px;border-radius: 25px;height: 28px" class="pa_italic collapsed">
+                                        <!--                                        role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false"-->
+                                        <!--                                        aria-controls="collapseTwo">-->
+                                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span><i class="glyphicon glyphicon-minus" aria-hidden="true"></i>contact
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        <tr th:if="${message_linked_ordernumber == order.ordernumber}">
+                            <td colspan="6" align="center">
+                                <div id="collapseTwo" class="panel-collapse collapse in " >
+                                    <div id="container1">
+                                        <div class="header1">
+                                            <span style="float: left;">chat box</span>
+                                            <p id="time" style="float: left;margin-left: 450px"></p>
+                                            <form th:if="${message_linked_ordernumber !=null}" method="POST" th:action="@{fetch_message}">
+                                                <input type="hidden" th:id="role" th:name="role" th:value="${T(com.anonymous.HST1C.Role).STAFF}"/>
+                                                <input type="hidden" th:id="ordernumber" th:name="ordernumber" th:value="${message_linked_ordernumber}" />
+                                                <button type="submit" class="btn btn-success link-button" style="margin-left: 420px">refresh</button>
+                                            </form>
+                                        </div>
+                                        <ul class="content1" id="ul">
+                                            <li th:each="message : ${messages}">
+                                                <img th:class="${message.issend}?imgright:imgleft" th:src="'p'"/>
+                                                <span th:class="${message.issend}?spanright:spanleft" th:text="${message.text} "></span>
+                                            </li>
+                                        </ul>
+                                        <div class="footer1">
+                                            <div id="user_face_icon">
+                                                <img th:src="@{/images/talk.jpg}" alt=""/>
+                                            </div>
+                                            <a th:href="@{staff_list}">
+                                                <button type="button" class="btn btn-warning" style="float: right;width: 62px; height: 48px;">close</button>
+                                            </a>
+
+
+                                            <form method="POST" th:action="@{fetch_message}">
+                                                <input type="hidden" th:id="role" th:name="role" th:value="${T(com.anonymous.HST1C.Role).STAFF}"/>
+                                                <input type="hidden" th:id="ordernumber" th:name="ordernumber" th:value="${order.ordernumber}" />
+                                                <input type="text" placeholder="say something.." th:id="text" th:name="text"/>
+                                                <span>
+                                                <button id="btn" type="submit" class="link-button">send</button>
+                                                </span>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </div>
+                </table>
+            </div>
+            <br/><br/>
+            <div class="panel-group about_panel" id="accordion" role="tablist" aria-multiselectable="true">
+                <hr/>
+                <table id="tabletwo" style="border-style: none;color: black;width: 1100px;text-align: center;" class="table table-striped">
+                    <tr>
+                        <th><span>Order Number</span></th>
+                        <th><span>Order Date</span></th>
+                        <th><span>Item ID</span></th>
+                        <th><span>Item Status</span></th>
+                        <th><span>Lost Date</span></th>
+                        <th style="color:#8f83b1" colspan ="3">     </th>
+                    </tr>
+                    <div th:each="order : ${orders_done}">
+                    <tr>
+                        <td><span th:text="${order.ordernumber}"></span></td>
+                        <td><span th:text="${order.orderdate}"></span></td>
+                        <td><span th:text="${order.itemid}"></span></td>
+                        <td><span th:text="${order.status}"></span></td>
+                        <td><span th:text="${order.lostdate}"></span></td>
+
+
+                        <td align="center" colspan="3">
+<!--                            future usage-->
+<!--                            <form th:unless="${message_linked_ordernumber == order.ordernumber}" method="POST" th:action="@{fetch_message}" style="margin:0px;display:inline;">-->
+<!--                                <input type="hidden" th:id="role" th:name="role" th:value="${T(com.anonymous.HST1C.Role).STAFF}"/>-->
+<!--                                <input type="hidden" th:id="ordernumber" th:name="ordernumber" th:value="${order.ordernumber}" />-->
+<!--                                <button type="submit" style="margin-left: 50px;background-color: #00FFCC;border: none;width: 100px;border-radius: 25px;height: 28px" class="pa_italic collapsed">-->
+<!--                                    &lt;!&ndash;                                role="button" data-toggle="collapse" data-parent="#accordion"  aria-expanded="false" &ndash;&gt;-->
+<!--                                    &lt;!&ndash;                                aria-controls="collapseThree">&ndash;&gt;-->
+<!--                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span><i class="glyphicon glyphicon-minus" aria-hidden="true"></i>contact-->
+<!--                                </button>-->
+<!--                            </form>-->
+                        </td>
+                    </tr>
+<!--                        future usage-->
+<!--                        <tr th:if="${message_linked_ordernumber == order.ordernumber}">-->
+<!--                            <td colspan="6" align="center">-->
+<!--                                <div id="collapseThree" class="panel-collapse collapse in " >-->
+<!--                                    <div id="container2">-->
+<!--                                        <div class="header2">-->
+<!--                                            <span style="float: left;">chat box</span>-->
+<!--                                            <p id="time" style="float: right;"></p>-->
+<!--                                        </div>-->
+<!--                                        <ul class="content2" id="ul2">-->
+<!--                                            <li th:each="message : ${messages}">-->
+<!--                                                <img th:class="${message.issend}?imgright1:imgleft1" th:src="'p'"/>-->
+<!--                                                <span th:class="${message.issend}?spanright1:spanleft1" th:text="${message.text} "></span>-->
+<!--                                            </li>-->
+<!--                                        </ul>-->
+<!--                                        <div class="footer2">-->
+<!--                                            <div id="user_face_icon1">-->
+<!--                                                <img th:src="@{/images/talk.jpg}" alt=""/>-->
+<!--                                            </div>-->
+
+<!--                                            <form method="POST" th:action="@{fetch_message}">-->
+<!--                                                <input type="hidden" th:id="role" th:name="role" th:value="${T(com.anonymous.HST1C.Role).STAFF}"/>-->
+<!--                                                <input type="hidden" th:id="ordernumber" th:name="ordernumber" th:value="${order.ordernumber}" />-->
+<!--                                                <input type="text" placeholder="say something.." th:id="text2" th:name="text"/>-->
+<!--                                                <span>-->
+<!--                                                    <button id="btn1" type="submit" class="link-button">send</button>-->
+<!--                                                </span>-->
+<!--                                                <span>-->
+<!--&lt;!&ndash;                                                    <a th:href="@{staff_list}"><span th:text="close"></span></a>&ndash;&gt;-->
+<!--                                                </span>-->
+<!--                                            </form>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </td>-->
+<!--                        </tr>-->
+                    </div>
+                </table>
+            </div>
+        </div>
+        <input type="button" name="return" value="&lt;&lt; Main page" class="btn btn-primary btn-lg return" style="margin-left: 565px;margin-top: 200px;width: 180px;height: 50px;" onclick="window.location.href='./'"/>
+    </div>
+</div>
+<!-- //mid-services -->
+
+<!-- footer -->
+<div class="footer_top_agileits">
+    <div class="container">
+        <div class="col-md-6 footer_grid">
+            <h3><span>About Us</span></h3>
+            <p><span>Nam libero tempore cum vulputate id est id, pretium semper enim. Morbi viverra congue nisi vel pulvinar posuere sapien
+                eros.</span>
+            </p>
+        </div>
+        <div class="col-md-6 footer_grid">
+            <h3><span>Contact Info</span></h3>
+            <ul class="address">
+                <li><i class="fa fa-map-marker" aria-hidden="true"></i><span style="margin:0px;display:inline;">Beijing-Dublin International College,Beijing,China.</span></li>
+                <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">Group5_Anonymous@gmail.com</a></li>
+                <li><i class="fa fa-phone" aria-hidden="true"></i>+8613888888888</li>
+            </ul>
+        </div>
+        <div class="clearfix"> </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<div class="footer_w3ls">
+    <div class="container">
+        <div class="footer_bottom">
+            <div class="col-md-9 footer_bottom_grid">
+                <div class="footer_bottom1">
+                    <a th:href="@{./}">
+                        <h2><span class="fa fa-signal" aria-hidden="true"></span> Hibernia-Sino <label><span>Travel Insurance</span></label></h2>
+                    </a>
+                    <p><span>Copyright &copy; Hibernia-Sino All rights reserved.</span></p>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- //footer -->
+
+<a href="#home" class="scroll" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+<!-- js -->
+<script type="text/javascript" th:src="@{/js/jquery-2.1.4.min.js}"></script>
+
+<script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+</body>
+</html>
