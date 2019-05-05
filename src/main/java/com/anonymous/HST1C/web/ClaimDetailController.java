@@ -3,10 +3,8 @@ package com.anonymous.HST1C.web;
 import com.anonymous.HST1C.Item;
 import com.anonymous.HST1C.Order;
 import com.anonymous.HST1C.Role;
-import com.anonymous.HST1C.data.ItemRepository;
-import com.anonymous.HST1C.data.LoginRepository;
-import com.anonymous.HST1C.data.MessageRepository;
-import com.anonymous.HST1C.data.OrderRepository;
+import com.anonymous.HST1C.Userinfo;
+import com.anonymous.HST1C.data.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,13 +19,15 @@ import java.util.Base64;
 
 public class ClaimDetailController {
     private LoginRepository loginRepository;
+    private UserinfoRepository userinfoRepository;
     private ItemRepository itemRepository;
     private OrderRepository orderRepository;
     private MessageRepository messageRepository;
 
     @Autowired
-    public ClaimDetailController(com.anonymous.HST1C.data.LoginRepository loginRepository, ItemRepository itemRepository, OrderRepository orderRepository, MessageRepository messageRepository) {
+    public ClaimDetailController(LoginRepository loginRepository, UserinfoRepository userinfoRepository, ItemRepository itemRepository, OrderRepository orderRepository, MessageRepository messageRepository) {
         this.loginRepository = loginRepository;
+        this.userinfoRepository = userinfoRepository;
         this.itemRepository = itemRepository;
         this.orderRepository = orderRepository;
         this.messageRepository = messageRepository;
@@ -59,6 +59,12 @@ public class ClaimDetailController {
         Item item=itemRepository.findItemById(order.getItemid());
         if(item==null){
             return "redirect:/claim_list";
+        }
+        Userinfo userinfo=userinfoRepository.findUserinfo(session.getAttribute("username").toString());
+        if(userinfo!=null){
+            byte[] userIconBytes = userinfo.getIconBytes();
+            String userIconBase64 = Base64.getEncoder().encodeToString(userIconBytes);
+            model.addAttribute("user_pic",userIconBase64);
         }
         byte[] imageBytes = item.getPictureBytes();
         String imageBase64 = Base64.getEncoder().encodeToString(imageBytes);

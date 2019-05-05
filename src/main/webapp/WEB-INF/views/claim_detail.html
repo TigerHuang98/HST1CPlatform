@@ -212,7 +212,7 @@
 
         <label class="col-sm-6 control-label" style="padding-top: 0px" ><span>Items photos :</span></label>
         <div class="col-sm-6 input-group">
-            <img th:src="${itemPicture} == null ? _ : @{'data:image/png;base64,'+${itemPicture}}" style="width: 100px;height: 100px" alt="Item photo" class="img-rounded"/>
+            <img th:src="${itemPicture} == null ? _ : @{'data:image/png;base64,'+${itemPicture}}" style="width: 100px;height: 100px" alt="Item photo not submitted" class="img-rounded"/>
         </div>
 
         <label class="col-sm-6 control-label" style="padding-top: 0px"><span>Item name :</span></label>
@@ -268,13 +268,13 @@
     </div>
     <ul class="content1" id="ul">
         <li th:each="message : ${messages}">
-            <img th:class="${message.issend}?imgright:imgleft" th:src="'p'"/>
+            <img th:class="${message.issend}?imgright:imgleft" th:src="${user_pic} == null ? _ : @{'data:image/png;base64,'+${user_pic}}" alt="user icon"/>
             <span th:class="${message.issend}?spanright:spanleft" th:text="${message.text} "></span>
         </li>
     </ul>
     <div class="footer1">
         <div id="user_face_icon">
-            <img th:src="@{/images/talk.jpg}" alt=""/>
+            <img th:src="${user_pic} == null ? _ : @{'data:image/png;base64,'+${user_pic}}" alt="user icon"/>
         </div>
 
         <form method="POST" th:action="@{fetch_message}">
