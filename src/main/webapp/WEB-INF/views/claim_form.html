@@ -101,6 +101,9 @@
         <div th:if="${price_not_set!=null}" style="background-color: #ffcccc; border: 2px solid red">
             Please enter price
         </div>
+        <div th:if="${picture_not_set!=null}" style="background-color: #ffcccc; border: 2px solid red">
+            Please set item picture
+        </div>
         <div class="errors" style="background-color: #ffcccc; border: 2px solid red" th:if="${#fields.hasErrors('*')} and ${lostdate_not_set==null}">
             <ul style="list-style-type:none;">
                 <li th:each="err : ${#fields.errors('*')}"

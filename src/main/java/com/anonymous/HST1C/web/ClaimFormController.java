@@ -32,12 +32,15 @@ public class ClaimFormController {
     }
     @RequestMapping(method = RequestMethod.POST)
     public String processClaim(@Valid ClaimForm claimForm, Errors errors, Model model, HttpSession session) throws IOException, SQLException {
-        if(claimForm.getLostdate()==null||claimForm.getPrice()==null){
+        if(claimForm.getLostdate()==null||claimForm.getPrice()==null||claimForm.getPicture().getOriginalFilename().equals("")){
             if(claimForm.getLostdate()==null){
                 model.addAttribute("lostdate_not_set","");
             }
             if(claimForm.getPrice()==null){
                 model.addAttribute("price_not_set","");
+            }
+            if(claimForm.getPicture().getOriginalFilename().equals("")){
+                model.addAttribute("picture_not_set","");
             }
             return "claim_form";
         }
