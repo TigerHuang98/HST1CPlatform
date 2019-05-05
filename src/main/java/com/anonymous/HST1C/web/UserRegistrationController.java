@@ -36,6 +36,10 @@ public class UserRegistrationController {
             model.addAttribute("birthday_not_set","");
             return "register";
         }
+        if(userRegistrationForm.getIcon().getOriginalFilename().equals("")){
+            model.addAttribute("icon_not_set","");
+            return "register";
+        }
         if(errors.hasErrors()){
             return "register";
         }

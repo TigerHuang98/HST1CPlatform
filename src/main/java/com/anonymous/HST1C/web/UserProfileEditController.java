@@ -65,6 +65,10 @@ public class UserProfileEditController {
             model.addAttribute("birthday_not_set","");
             return "profile_edit";
         }
+        if(userUpdateForm.getIcon().getOriginalFilename().equals("")){
+            model.addAttribute("icon_not_set","");
+            return "profile_edit";
+        }
         if(errors.hasErrors()){
             return "profile_edit";
         }

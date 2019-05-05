@@ -100,6 +100,9 @@
         <div th:if="${birthday_not_set!=null}" style="background-color: #ffcccc; border: 2px solid red">
             Please enter your birthday
         </div>
+        <div th:if="${icon_not_set!=null}" style="background-color: #ffcccc; border: 2px solid red">
+            Please set your icon
+        </div>
         <div class="errors" style="background-color: #ffcccc; border: 2px solid red" th:if="${#fields.hasErrors('*')} and ${birthday_not_set==null}">
             <ul style="list-style-type:none;">
                 <li th:each="err : ${#fields.errors('*')}"

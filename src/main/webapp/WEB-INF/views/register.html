@@ -84,6 +84,9 @@
             <div th:if="${birthday_not_set!=null}" style="background-color: #ffcccc; border: 2px solid red">
                 Please enter your birthday
             </div>
+            <div th:if="${icon_not_set!=null}" style="background-color: #ffcccc; border: 2px solid red">
+                Please set your icon
+            </div>
             <div th:if="${duplicate_user!=null}" style="background-color: #ffcccc; border: 2px solid red">
                 Sorry, this user name has been occupied
             </div>
