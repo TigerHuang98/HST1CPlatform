@@ -18,6 +18,7 @@ public class JdbcUserinfoRepository implements UserinfoRepository {
 
     private static final String ADD_USERINFO="INSERT INTO userinfo(`username`,`gender`,`phonenumber`,`emailaddress`,`birthdate`,`icon`) VALUES (:username,:gender,:phonenumber,:emailaddress,:birthdate,:icon)";
     private static final String FIND_USERINFO="SELECT `username`,`gender`,`phonenumber`,`emailaddress`,`birthdate`,`icon` FROM userinfo ";
+    private static final String UPDATE_USERINFO="UPDATE userinfo SET `gender`=:gender, `phonenumber`=:phonenumber,`emailaddress`=:emailaddress, `birthdate`=:birthdate, `icon`=:icon ";
     private static final String _BY_USERNAME="WHERE `username`=:username";
 
     private static final class UserinfoRowMapper implements RowMapper<Userinfo> {
@@ -70,6 +71,26 @@ public class JdbcUserinfoRepository implements UserinfoRepository {
         paramMap.put("birthdate",userinfo.getBirthdate());
         paramMap.put("icon",userinfo.getIcon());
         namedParameterJdbcOperations.update(ADD_USERINFO,paramMap);
+        return userinfo;
+    }
+
+    @Override
+    public Userinfo updateUserinfo(Userinfo userinfo) {
+        String genderString="";
+        if(userinfo.getGender().equals(Gender.MALE)){
+            genderString="M";
+        }
+        if(userinfo.getGender().equals(Gender.FEMALE)){
+            genderString="F";
+        }
+        Map<String,Object> paramMap=new HashMap<>();
+        paramMap.put("username",userinfo.getUsername());
+        paramMap.put("gender",genderString);
+        paramMap.put("phonenumber",userinfo.getPhonenumber());
+        paramMap.put("emailaddress",userinfo.getEmailaddress());
+        paramMap.put("birthdate",userinfo.getBirthdate());
+        paramMap.put("icon",userinfo.getIcon());
+        namedParameterJdbcOperations.update(UPDATE_USERINFO+_BY_USERNAME,paramMap);
         return userinfo;
     }
 
