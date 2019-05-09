@@ -541,18 +541,18 @@ label {
 }
 
 .search_top input[type="submit"] {
-	background: #949494;
+	background: #FFCC00;
 	width: 20%;
-	color: #fff;
+	color: black;
 	font-weight: 700;
 	font-size: 0.91em;
 	padding: 1em 1em;
 }
 
 .search_top input[type="button"] {
-	background: #949494;
+	background: #FFCC00;
 	width: 20%;
-	color: #fff;
+	color: black;
 	font-weight: 700;
 	font-size: 0.91em;
 	padding: 1em 1em;
@@ -1387,7 +1387,7 @@ p.reg {
 
 .inner_page_agile {
 	text-align: center;
-	background: url(../images/banner1.jpg) no-repeat 0px 0px;
+	background: url(../images/back.jpg) no-repeat 0px 0px;
 	background-size: cover;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
