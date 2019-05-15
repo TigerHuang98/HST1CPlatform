@@ -239,7 +239,7 @@
                                 <form th:unless="${message_linked_ordernumber == order.ordernumber}" method="POST" th:action="@{fetch_message}" style="margin:0px;display:inline;">
                                     <input type="hidden" th:id="role" th:name="role" th:value="${T(com.anonymous.HST1C.Role).STAFF}"/>
                                     <input type="hidden" th:id="ordernumber" th:name="ordernumber" th:value="${order.ordernumber}" />
-                                    <button type="submit" style="margin-left: 50px;background-color: #00FFCC;border: none;width: 100px;border-radius: 25px;height: 28px" class="pa_italic collapsed">
+                                    <button type="submit" style="margin-left: 50px;background-color: #3bd3d7;color:white;border: none;width: 98px;border-radius: 25px;height: 36px" class="pa_italic collapsed">
                                         <!--                                        role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false"-->
                                         <!--                                        aria-controls="collapseTwo">-->
                                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span><i class="glyphicon glyphicon-minus" aria-hidden="true"></i>contact
@@ -365,7 +365,7 @@
                 </table>
             </div>
         </div>
-        <input type="button" name="return" value="&lt;&lt; Main page" class="btn btn-primary btn-lg return" style="margin-left: 565px;margin-top: 200px;width: 180px;height: 50px;" onclick="window.location.href='./'"/>
+        <input type="button" name="return" value="&lt;&lt; Main page" class="btn btn-primary btn-lg center-block return" style="margin-top: 200px;width: 180px;height: 50px;" onclick="window.location.href='./'"/>
     </div>
 </div>
 <!-- //mid-services -->
