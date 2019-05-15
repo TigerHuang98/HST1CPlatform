@@ -268,7 +268,7 @@
     </div>
     <ul class="content1" id="ul">
         <li th:each="message : ${messages}">
-            <img th:class="${message.issend}?imgright:imgleft" th:src="${user_pic} == null ? _ : @{'data:image/png;base64,'+${user_pic}}" alt="user icon"/>
+            <img th:class="${message.issend}?imgright:imgleft" th:src="${message.issend}?(${user_pic} == null ? _ : @{'data:image/png;base64,'+${user_pic}}):@{/images/talk.jpg}" alt="user icon"/>
             <span th:class="${message.issend}?spanright:spanleft" th:text="${message.text} "></span>
         </li>
     </ul>
