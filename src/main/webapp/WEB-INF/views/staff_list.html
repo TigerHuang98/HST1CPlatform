@@ -179,7 +179,7 @@
                                         <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                        <li><a th:href="@{'./'+#{theOtherLanguage}}"><span th:text="#{changeLanguage}"></span></a></li>
+                                        <li><a th:href="@{@{staff_list}+#{theOtherLanguage}}"><span th:text="#{changeLanguage}"></span></a></li>
                                     </ul>
                                 </div>
                             </li>
